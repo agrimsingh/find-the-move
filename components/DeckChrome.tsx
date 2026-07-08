@@ -1,0 +1,23 @@
+import { slideCount } from "../lib/slides";
+
+export function DeckChrome({ index }: { index: number }) {
+  const current = String(index + 1).padStart(2, "0");
+  const total = String(slideCount).padStart(2, "0");
+
+  return (
+    <div className="chrome">
+      <div className="chrome-row">
+        <span className="chrome-mark">Deck</span>
+        <span className="chrome-count">
+          {current} / {total}
+        </span>
+      </div>
+      <div className="progress-track">
+        <div
+          className="progress-bar"
+          style={{ width: `${((index + 1) / slideCount) * 100}%` }}
+        />
+      </div>
+    </div>
+  );
+}

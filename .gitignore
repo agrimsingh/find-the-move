@@ -1,0 +1,21 @@
+# deps / build
+node_modules/
+.next/
+out/
+.vercel/
+*.tsbuildinfo
+
+# local / tooling
+.DS_Store
+.cursor/
+test-results/
+playwright-report/
+
+# heavy source dumps (kept local; not needed for the deck deploy)
+work/*.vtt
+work/qa/
+work/llms-full.md
+work/video*.json
+work/speakers.json
+work/sessions.json
+work/online_playlist.json
