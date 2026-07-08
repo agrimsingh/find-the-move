@@ -5,15 +5,14 @@ import { useDeckNavigation } from "../hooks/useDeckNavigation";
 import { slides } from "../lib/slides";
 
 export default function AudiencePage() {
-  const { index, onClickNav, syncState, partyHost } = useDeckNavigation({
-    role: "follower",
+  const { index, onClickNav } = useDeckNavigation({
+    role: "controller",
     enableClickNav: true
   });
   const slide = slides[index];
-  const following = Boolean(partyHost) && syncState === "live";
 
   return (
-    <main className="audience-page" onClick={following ? undefined : onClickNav}>
+    <main className="audience-page" onClick={onClickNav}>
       <div key={slide.id} className="slide-enter slide-shell">
         {slide.content}
       </div>

@@ -55,15 +55,23 @@ function previewSummary(slide: SlideDef, index: number, label: string) {
 }
 
 export default function PresenterPage() {
-  const { index, setIndex, slideCount, room, syncState, partyHost } = useDeckNavigation({
-    role: "controller"
-  });
+  const { index, setIndex, slideCount, room, syncState, partyHost, syncEnabled } =
+    useDeckNavigation({
+      role: "controller"
+    });
   const elapsed = useElapsedTimer();
   const slide = slides[index];
   const nextSlide = index < slides.length - 1 ? slides[index + 1] : null;
-  const audienceHref = `/?room=${encodeURIComponent(room)}`;
-  const syncLabel =
-    !partyHost ? "sync off" : syncState === "live" ? "sync live" : "sync…";
+  const audienceHref = syncEnabled
+    ? `/?room=${encodeURIComponent(room)}&sync=1`
+    : "/";
+  const syncLabel = !syncEnabled
+    ? "manual"
+    : !partyHost
+      ? "sync off"
+      : syncState === "live"
+        ? "sync live"
+        : "sync…";
 
   return (
     <div className="presenter-page">
@@ -72,7 +80,13 @@ export default function PresenterPage() {
           <div className="presenter-label">Presenter view</div>
           <div className="presenter-meta">
             <span>{index + 1} / {slideCount}</span>
-            <span className={`sync-pill sync-pill-${syncState}${partyHost ? "" : " sync-pill-offline"}`}>
+            <span
+              className={`sync-pill ${
+                syncEnabled
+                  ? `sync-pill-${syncState}${partyHost ? "" : " sync-pill-offline"}`
+                  : "sync-pill-offline"
+              }`}
+            >
               {syncLabel}
             </span>
             <Link className="audience-link" href={audienceHref} target="_blank">
@@ -143,9 +157,9 @@ export default function PresenterPage() {
       </div>
 
       <footer className="presenter-footer">
-        <span>You drive · room {room}</span>
+        <span>Notes view · room {room}</span>
         <span className="faint">
-          &nbsp; Projector opens Audience and only follows
+          &nbsp; Add ?sync=1 to phone + projector only when you want remote control
         </span>
       </footer>
     </div>
