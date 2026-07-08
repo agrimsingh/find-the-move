@@ -1,7 +1,9 @@
-const storageKey = "aiewf-learning-deck-index";
-const channelName = "aiewf-learning-deck-sync";
+export const DEFAULT_DECK_ROOM = "talk";
 
-type DeckSyncDetail = {
+const storageKey = "aiewf-learning-deck-index";
+const roomStorageKey = "aiewf-learning-deck-room";
+
+export type DeckSyncDetail = {
   index: number;
   sourceId: string;
 };
@@ -21,16 +23,32 @@ export function readStoredIndex() {
   return Number.isFinite(stored) ? stored : 0;
 }
 
-export function publishDeckIndex(index: number, sourceId: string) {
+export function writeStoredIndex(index: number) {
   if (typeof window === "undefined") return;
   window.localStorage.setItem(storageKey, String(index));
-  window.dispatchEvent(new CustomEvent(channelName, { detail: { index, sourceId } }));
 }
 
-export function subscribeDeckSync(callback: (detail: DeckSyncDetail) => void) {
-  function onSync(event: Event) {
-    callback((event as CustomEvent<DeckSyncDetail>).detail);
+export function readStoredRoom() {
+  if (typeof window === "undefined") return DEFAULT_DECK_ROOM;
+  return window.localStorage.getItem(roomStorageKey) ?? DEFAULT_DECK_ROOM;
+}
+
+export function writeStoredRoom(room: string) {
+  if (typeof window === "undefined") return;
+  window.localStorage.setItem(roomStorageKey, room);
+}
+
+export function resolveDeckRoom(search: string | null | undefined) {
+  if (!search) return readStoredRoom();
+  const params = new URLSearchParams(search.startsWith("?") ? search.slice(1) : search);
+  const room = params.get("room")?.trim();
+  if (room) {
+    writeStoredRoom(room);
+    return room;
   }
-  window.addEventListener(channelName, onSync);
-  return () => window.removeEventListener(channelName, onSync);
+  return readStoredRoom();
+}
+
+export function getPartyKitHost() {
+  return process.env.NEXT_PUBLIC_PARTYKIT_HOST?.trim() || null;
 }

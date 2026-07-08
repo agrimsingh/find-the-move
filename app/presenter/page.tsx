@@ -55,10 +55,15 @@ function previewSummary(slide: SlideDef, index: number, label: string) {
 }
 
 export default function PresenterPage() {
-  const { index, setIndex, slideCount } = useDeckNavigation();
+  const { index, setIndex, slideCount, room, syncState, partyHost } = useDeckNavigation({
+    publishOnConnect: true
+  });
   const elapsed = useElapsedTimer();
   const slide = slides[index];
   const nextSlide = index < slides.length - 1 ? slides[index + 1] : null;
+  const audienceHref = `/?room=${encodeURIComponent(room)}`;
+  const syncLabel =
+    !partyHost ? "sync off" : syncState === "live" ? "sync live" : "sync…";
 
   return (
     <div className="presenter-page">
@@ -67,7 +72,10 @@ export default function PresenterPage() {
           <div className="presenter-label">Presenter view</div>
           <div className="presenter-meta">
             <span>{index + 1} / {slideCount}</span>
-            <Link className="audience-link" href="/" target="_blank">
+            <span className={`sync-pill sync-pill-${syncState}${partyHost ? "" : " sync-pill-offline"}`}>
+              {syncLabel}
+            </span>
+            <Link className="audience-link" href={audienceHref} target="_blank">
               Audience <ExternalLink size={13} strokeWidth={2.2} />
             </Link>
           </div>
@@ -135,9 +143,9 @@ export default function PresenterPage() {
       </div>
 
       <footer className="presenter-footer">
-        <span>Right / space / j: next</span>
+        <span>Room {room} · chevrons or swipe the previews</span>
         <span className="faint">
-          &nbsp; Left / k: previous &nbsp; Home / End: first / last
+          &nbsp; Open Audience on the projector with the same room
         </span>
       </footer>
     </div>

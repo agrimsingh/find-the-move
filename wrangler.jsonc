@@ -1,0 +1,19 @@
+{
+  "name": "aiewf-deck-sync",
+  "main": "party/deck.ts",
+  "compatibility_date": "2024-09-23",
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "DECK_ROOM",
+        "class_name": "DeckRoom"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["DeckRoom"]
+    }
+  ]
+}

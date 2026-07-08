@@ -19,3 +19,4 @@ work/video*.json
 work/speakers.json
 work/sessions.json
 work/online_playlist.json
+.vercel

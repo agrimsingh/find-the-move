@@ -882,6 +882,28 @@ a {
   color: var(--foreground);
 }
 
+.sync-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+}
+
+.sync-pill-live {
+  border-color: color-mix(in srgb, #0070f3 55%, var(--border));
+  color: #79b8ff;
+}
+
+.sync-pill-connecting,
+.sync-pill-offline {
+  color: var(--faint);
+}
+
 .presenter-controls {
   display: flex;
   align-items: center;

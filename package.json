@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
+    "dev:party": "wrangler dev",
     "build": "next build",
-    "start": "next start --hostname 127.0.0.1"
+    "start": "next start --hostname 127.0.0.1",
+    "deploy:party": "wrangler deploy"
   },
   "dependencies": {
     "geist": "^1.7.2",
@@ -19,7 +21,8 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "playwright": "^1.49.1",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "wrangler": "^4.108.0"
   },
   "overrides": {
     "postcss": "^8.5.10"
