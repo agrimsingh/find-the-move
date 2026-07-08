@@ -65,6 +65,9 @@ export class DeckRoom {
     const data = parseMessage(message);
     if (!data) return;
 
+    // Last controller write wins. No coalescing / echo storms.
+    if (data.index === this.index) return;
+
     this.index = Math.max(0, data.index);
     socket.serializeAttachment({ index: this.index });
 

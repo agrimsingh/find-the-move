@@ -56,7 +56,7 @@ function previewSummary(slide: SlideDef, index: number, label: string) {
 
 export default function PresenterPage() {
   const { index, setIndex, slideCount, room, syncState, partyHost } = useDeckNavigation({
-    publishOnConnect: true
+    role: "controller"
   });
   const elapsed = useElapsedTimer();
   const slide = slides[index];
@@ -143,9 +143,9 @@ export default function PresenterPage() {
       </div>
 
       <footer className="presenter-footer">
-        <span>Room {room} · chevrons or swipe the previews</span>
+        <span>You drive · room {room}</span>
         <span className="faint">
-          &nbsp; Open Audience on the projector with the same room
+          &nbsp; Projector opens Audience and only follows
         </span>
       </footer>
     </div>
