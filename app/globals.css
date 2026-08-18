@@ -1555,7 +1555,11 @@ a {
   justify-content: flex-start;
 }
 
-.slide-frame.demo-slide .h1 {
+.slide-frame.demo-slide .h1,
+.slide-frame.demo-hold .h1 {
+  position: absolute;
+  top: 28px;
+  left: 36px;
   max-width: none;
   font-size: clamp(15px, 1.5vw, 20px);
   font-weight: 500;

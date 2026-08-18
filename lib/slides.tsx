@@ -270,9 +270,14 @@ export const slides: SlideDef[] = [
     note: (
       <Notes>
         <p>
-          compounding-correctness regime — spend big to DISCOVER is correct,
-          once. Failure is paying the discovery price for information you
-          already own. Value-maxing is token-maxing with a memory.
+          There&apos;s a live position right now that says we&apos;ve entered a
+          compounding-correctness regime — the more tokens you spend on a
+          task, the better the outcome, so spend big. I half agree. Spending
+          big to DISCOVER is correct. The wander was worth every token —
+          once. The failure mode isn&apos;t the spend; it&apos;s paying the
+          discovery price for information you already own. So I don&apos;t
+          think token-maxing and value-maxing are opposite camps. Value-maxing
+          is what token-maxing becomes when you keep the residue.
         </p>
         <p>https://12gramsofcarbon.com/p/agentics-tech-things-tokenmaxxing</p>
       </Notes>
@@ -297,9 +302,11 @@ export const slides: SlideDef[] = [
     note: (
       <Notes>
         <p>
-          Check-then-write is two steps; between them the world changes.
-          Conditional update is one step; the row count IS the answer. Forty
-          frontier minutes to get here. Two lines to keep.
+          Engineers in the room have already named this bug in their heads —
+          good, that&apos;s the point, nitpick away. Check-then-write is two
+          steps; between them the world changes. The conditional update is one
+          step; the row count IS the answer. Forty frontier minutes to get
+          here. Two lines to keep.
         </p>
       </Notes>
     ),
@@ -335,8 +342,10 @@ export const slides: SlideDef[] = [
     note: (
       <Notes>
         <p>
-          Cheaper model, clean window, reads this file first. The file is the
-          receipt for a lesson already paid for.
+          A cheaper model, clean window, reads this file first. It does not
+          spend frontier tokens rediscovering check-then-write. The file is
+          not the lesson — the file is the receipt for a lesson already paid
+          for.
         </p>
       </Notes>
     ),
@@ -362,8 +371,12 @@ when two people buy the last seat:
     note: (
       <Notes>
         <p>
-          I didn&apos;t write that skill. The wander wrote it. Diff is
-          deletion, not authorship.
+          This is the beat to slow down on — it&apos;s the aha of the talk. I
+          didn&apos;t write that skill. The wander wrote it; I just failed to
+          save it the first time. Left is the log, right is the file — the
+          diff between them is deletion, not authorship. Skills are not
+          documentation you write. They&apos;re an artifact you harvest from a
+          bill you already paid.
         </p>
       </Notes>
     ),
@@ -392,14 +405,18 @@ second buyer gets nothing`}</pre>
     note: (
       <Notes>
         <p>
-          cheap model, fresh chat. Reproduce double-sell. Point at SKILL.md +
-          failing test. One prompt: &ldquo;fix the seat bug.&rdquo; Green. Say
-          real costs if known. Do not fabricate.
+          Cursor, cheap model pinned, fresh chat. (1) Reproduce: run the
+          two-buyer test against the check-then-write version — watch it
+          double-sell. (2) Point the model at last-seat-race/SKILL.md + the
+          failing test, one prompt: &quot;fix the seat bug.&quot; (3) It
+          applies the conditional update in one pass — no exploration, no
+          re-derivation. (4) Run the test, green. Say the cost out loud if
+          you have real numbers. Do not fabricate.
         </p>
       </Notes>
     ),
     content: (
-      <div className="slide-frame demo-hold">
+      <div className="slide-frame demo-slide demo-hold">
         <H1>cheap model · clean window · reads the file first</H1>
       </div>
     )
@@ -431,6 +448,14 @@ GREEN  seats taken == 1`}</pre>
     id: "the-chart",
     note: (
       <Notes>
+        <p>
+          Read the bars, then shut up for two seconds. Then: the study result
+          is that higher spend doesn&apos;t buy accuracy past a point, and
+          identical tasks vary up to 30× in cost — so the wander isn&apos;t
+          just expensive, it&apos;s a lottery ticket. The skill doesn&apos;t
+          just cut the mean. It kills the variance. The skill is how I stop
+          gambling.
+        </p>
         <p>How Do AI Agents Spend Your Money?</p>
         <p>
           Q&amp;A only: SAGE +8.9% / −59% —
@@ -453,8 +478,11 @@ GREEN  seats taken == 1`}</pre>
     note: (
       <Notes>
         <p>
-          A cheap model can go green by deleting the check — or hiding the buy
-          button. If I cannot trust green, I pay again.
+          The failure modes are real: delete the one-seat assertion, or make
+          the UI unable to trigger the race — both go green. The lock is
+          itself a token move: the cheap model cannot edit this check, so
+          green is load-bearing. A person saying &quot;wait&quot; is a check.
+          A check the agent rewrote so two seats is &quot;fine&quot; is not.
         </p>
       </Notes>
     ),
@@ -475,6 +503,20 @@ seats taken == 1`}</pre>
     id: "depreciation",
     note: (
       <Notes>
+        <p>
+          Everyone this year is talking about skills compounding — libraries
+          that grow combinatorially, knowledge that accumulates instead of
+          resetting. All accumulation-flavored. Here&apos;s the half nobody
+          says on stage: skills depreciate, and a stale skill has NEGATIVE
+          carry. Mine didn&apos;t just fail to help — the skill WAS the bug.
+          It marched a cheap model straight into the race, then charged me
+          frontier tokens to get out. So the discipline is symmetric: harvest
+          the bill, AND retire the asset when the world moves. I deleted it
+          and kept one landmine for the next agent that tries
+          check-then-write. (&quot;landmine&quot; here = a tripwire
+          protecting the path; say that in one clause so the metaphor
+          doesn&apos;t invert.)
+        </p>
         <p>
           What Should a Skill Remember? Quality–Cost Trade-offs in Cost-Aware
           Skill Rewriting
