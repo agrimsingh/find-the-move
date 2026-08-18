@@ -9,30 +9,13 @@ import { useDeckNavigation } from "../../hooks/useDeckNavigation";
 import { slides } from "../../lib/slides";
 
 const slideTitles: Record<string, string> = {
-  title: "Agents are leaving the demo phase.",
-  frame: "You adopt an operating model.",
-  "three-questions": "Answer these three.",
-  "sdlc-thesis": "Optimize the loop, not the diff.",
-  "sdlc-dialectic": "Factory throughput vs orchestra craft.",
-  "sdlc-boundary": "Inner loop vs outer loop.",
-  "sdlc-how": "Design the loop before the agent.",
-  "sdlc-metrics": "Measure the loop, not the demo.",
-  "sdlc-tension": "Harness raises the floor, not ownership.",
-  "sdlc-breakout": "Pick one loop an agent could own.",
-  "harness-thesis": "The controlled run is the product.",
-  "harness-how": "A harness is five jobs.",
-  "harness-tokens": "Tokens are not gas. Give them jobs.",
-  "harness-checklist": "Six questions before real data.",
-  "harness-risk": "Weak verifiers train the wrong behavior.",
-  "harness-breakout": "Design the cage.",
-  "context-thesis": "Bigger windows do not solve remembering.",
-  "context-harness": "Memory is a write / manage / read loop.",
-  "context-how": "Route state by lifespan and trust.",
-  "context-policy": "Permission, provenance, expiry.",
-  "context-breakout": "Write a memory policy.",
-  surfaces: "Same cage, different surfaces.",
-  "unconference-plan": "Every room produces an operating rule.",
-  close: "Can we operate the agents we are building?"
+  title: "You will burn tokens finding the move.",
+  "find-the-move": "find the move",
+  "dont-pay-twice": "don't pay to find it twice",
+  "freeze-it": "freeze it",
+  "same-task-two-ways": "same task two ways",
+  "same-task-visual": "the wander, then the skill",
+  "no-check-no-merge": "no check, no merge"
 };
 
 function presenterTitle(slide: SlideDef) {

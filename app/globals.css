@@ -1306,3 +1306,14 @@ a {
     display: none;
   }
 }
+
+.cite {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 112, 243, 0.45);
+  text-underline-offset: 3px;
+}
+
+.cite:hover {
+  text-decoration-color: var(--signal);
+}

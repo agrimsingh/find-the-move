@@ -7,7 +7,7 @@ export function DeckChrome({ index }: { index: number }) {
   return (
     <div className="chrome">
       <div className="chrome-row">
-        <span className="chrome-mark">Deck</span>
+        <span className="chrome-mark">Find the move</span>
         <span className="chrome-count">
           {current} / {total}
         </span>

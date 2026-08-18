@@ -5,9 +5,9 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
 export const metadata: Metadata = {
-  title: "AI Engineer World's Fair 2026 Learning Deck",
+  title: "Find the move",
   description:
-    "A thematic presentation on agentic SDLC, harnesses, and context from AI Engineer World's Fair 2026."
+    "Agrim Singh's 15-minute talk. You will burn tokens finding the move."
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
