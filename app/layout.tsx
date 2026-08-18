@@ -7,7 +7,7 @@ import { GeistMono } from "geist/font/mono";
 export const metadata: Metadata = {
   title: "Find the move",
   description:
-    "Agrim Singh's 15-minute talk. You will burn tokens finding the move."
+    "Agrim Singh's 15-minute talk. Find the move."
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

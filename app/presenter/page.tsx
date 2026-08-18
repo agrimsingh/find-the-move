@@ -10,18 +10,14 @@ import { slides } from "../../lib/slides";
 
 const slideTitles: Record<string, string> = {
   title: "Find the move.",
-  "paid-tuesday-twice": "Last Tuesday",
-  "week-that-was-work": "The first week",
-  "six-accounts": "Six accounts",
-  thesis:
-    "The failure is paying frontier prices to find the same move again next Tuesday.",
-  "write-the-path": "Write the path down",
-  "code-not-paragraph": "/fix-flaky-auth",
-  "session-disposable": "The session is disposable",
-  "good-run-has-skill": "The good run already has the skill",
-  "delete-most": "Then delete most of it",
-  "check-you-will-run": "A check you will actually run",
-  "wander-vs-frozen": "the wander / frozen",
+  "second-chat": "The second chat starts over",
+  thesis: "The failure is paying to find the same move again.",
+  "leave-these": "Leave these in the repo",
+  "skill-file": "The next agent reads this first",
+  "lock-the-test": "Lock the test",
+  "copy-out-of-chat": "Copy it out of the chat",
+  "delete-ones-that-fight": "Delete the ones that fight",
+  "freeze-a-check": "Freeze a check you will run",
   "dont-merge": "Don't merge it"
 };
 

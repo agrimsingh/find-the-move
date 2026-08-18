@@ -1,29 +1,9 @@
-import type { MouseEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { H1, Kicker, Sub, type SlideDef } from "../components/Slide";
 
 function Notes({ children }: { children: ReactNode }) {
   return <div>{children}</div>;
-}
-
-function Cite({
-  href,
-  children
-}: {
-  href: string;
-  children: ReactNode;
-}) {
-  return (
-    <a
-      className="cite"
-      href={href}
-      rel="noreferrer"
-      target="_blank"
-      onClick={(event: MouseEvent<HTMLAnchorElement>) => event.stopPropagation()}
-    >
-      {children}
-    </a>
-  );
 }
 
 export const slides: SlideDef[] = [
@@ -32,9 +12,12 @@ export const slides: SlideDef[] = [
     note: (
       <Notes>
         <p>
-          I am going to tell you what I did last Tuesday. Not a framework.
-          Fifteen minutes. If you already know the ending, stay for the part
-          where I admit I paid anyway.
+          Name and handle. That is the whole card. I am not going to put the
+          claim up here.
+        </p>
+        <p>
+          If you already know where this goes, stay for the part where I show
+          you the file.
         </p>
       </Notes>
     ),
@@ -46,80 +29,38 @@ export const slides: SlideDef[] = [
     )
   },
   {
-    id: "paid-tuesday-twice",
+    id: "second-chat",
     note: (
       <Notes>
         <p>
-          Last Tuesday I already knew the path. I opened a new agent anyway.
-          Frontier prices, same hour, same ticket. I am not confessing a
-          secret. I am describing the default.
+          I have a failing test. I let the agent wander. Forty minutes. Two
+          wrong files. Then green.
         </p>
         <p>
-          The room laughs because they did it this morning. I did it this
-          morning. That laugh is the talk.
+          I open a new chat. Same kind of failure. It opens the same wrong
+          files again.
+        </p>
+        <p>
+          I paid to learn the path. I threw the path away. That is the scene.
+          Not a different ticket. The same kind of failure, a clean window, and
+          I start over.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame">
-        <H1>Last Tuesday</H1>
-        <Sub>
-          Last Tuesday I already knew how to do the task. I opened a new agent
-          anyway. Frontier prices, same path, same hour. The room laughs
-          because they did it this morning.
-        </Sub>
-      </div>
-    )
-  },
-  {
-    id: "week-that-was-work",
-    note: (
-      <Notes>
-        <p>
-          The first wander is not the failure. That week is tuition. I am
-          paying to learn how this task is done in this repo. I have sat in
-          that week. A student in this room has sat in that week.
-        </p>
-        <p>
-          I keep the receipt. If I throw the chat away, I will buy the lesson
-          again, at the same price, and call it exploration.
-        </p>
-      </Notes>
-    ),
-    content: (
-      <div className="slide-frame">
-        <H1>The first week</H1>
-        <Sub>
-          The first wander is tuition. You are paying to learn how this task
-          is done in this repo. Keep the receipt. If you throw it away, you
-          will buy the lesson again.
-        </Sub>
-      </div>
-    )
-  },
-  {
-    id: "six-accounts",
-    note: (
-      <Notes>
-        <p>
-          Dex, Hyper Engineering chat. Six Claude Code accounts, maxed every
-          five-hour window so the tokens never sit idle. He calls that token
-          harder.
-        </p>
-        <p>
-          I have felt that number in my chest. It feels like a win. It is a
-          slot machine. The machine is the window, not the repo.
-        </p>
-      </Notes>
-    ),
-    content: (
-      <div className="slide-frame">
-        <H1>Six accounts</H1>
-        <Sub>
-          Dex, Hyper Engineering chat: six Claude Code accounts, maxed every
-          five-hour window so the tokens never sit idle. He calls that token
-          harder. The number feels like a win. It is a slot machine.
-        </Sub>
+        <H1>The second chat starts over</H1>
+        <div className="scene">
+          <p>
+            You have a failing test. You let the agent wander. Forty minutes,
+            two wrong files, then green.
+          </p>
+          <p>
+            You open a new chat. Same kind of failure. It opens the wrong files
+            again.
+          </p>
+          <p>You paid to learn the path. You threw the path away.</p>
+        </div>
       </div>
     )
   },
@@ -128,219 +69,213 @@ export const slides: SlideDef[] = [
     note: (
       <Notes>
         <p>
-          That is the dumb default. Paying frontier prices next Tuesday to
-          find the same move again.
+          That is the failure. Not the first wander. The first wander is how I
+          learn the repo.
         </p>
+        <p>The failure is paying to find the same move again.</p>
       </Notes>
     ),
     content: (
       <div className="slide-frame">
-        <H1>
-          The failure is paying frontier prices to find the same move again
-          next Tuesday.
-        </H1>
+        <H1>The failure is paying to find the same move again.</H1>
       </div>
     )
   },
   {
-    id: "write-the-path",
+    id: "leave-these",
     note: (
       <Notes>
         <p>
-          Whatever worked has to leave the chat. I do not mean a blog post. I
-          mean a skill, a slash command, a script, a test that goes red if
-          the move is wrong.
+          I am going to leave these in the repo. A skill is a short recipe the
+          next agent reads before it starts. A slash command is the name I type
+          to run that recipe. A script is the command itself, not a paragraph
+          about it. A locked test is a check the agent is not allowed to edit.
+          AGENTS.md is two lines that point at those files.
         </p>
-        <p>
-          swyx&apos;s freeze: the larger model writes a compound tool so the
-          smaller one cannot invent a new path. Tonight I freeze one.
-        </p>
+        <p>If it only lives in the chat, I will pay again.</p>
       </Notes>
     ),
     content: (
-      <div className="slide-frame">
-        <H1>Write the path down</H1>
-        <Sub>
-          Whatever worked has to leave the chat. A skill. A slash command. A
-          script. A test that goes red if the move is wrong. Tonight,{" "}
-          <Cite href="https://x.com/swyx/status/2089499493083529476">
-            freeze one
-          </Cite>{" "}
-          — a compound tool.
-        </Sub>
+      <div className="slide-frame compact">
+        <H1>Leave these in the repo</H1>
+        <div className="repo-list">
+          <p>
+            A skill — a short recipe the next agent reads before it starts.
+          </p>
+          <p>A slash command — a name you type to run that recipe.</p>
+          <p>A script — the command itself, not a paragraph about it.</p>
+          <p>A locked test — a check the agent is not allowed to edit.</p>
+          <p>A short AGENTS.md — two lines that point at those files.</p>
+        </div>
+        <p className="sub">If it only lives in the chat, you will pay again.</p>
       </div>
     )
   },
   {
-    id: "code-not-paragraph",
+    id: "skill-file",
     note: (
       <Notes>
         <p>
-          This is the whole card. A locked Cursor skill. Reproduce the flake.
-          Do not edit the test. Fix the source. Stop when it is green.
+          This is the whole skill. The next agent reads this first. When auth
+          tests flake, reproduce with that command. Do not edit the test. Stop
+          if it is still red.
         </p>
         <p>
-          If it is still a paragraph in my notes app, I have not frozen
-          anything.
+          If this file does not exist, I do not have a skill. I have a memory.
+          Osman mines traces into skills. I do not need a tool for that. I need
+          this file.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame code-slide">
-        <pre className="code-fill">{`# /fix-flaky-auth
-
-1. Reproduce with \`pnpm test auth.spec.ts\`
-2. Do not edit \`auth.spec.ts\`
-3. Fix the source, not the assertion
-4. Stop when the locked test is green`}</pre>
+        <H1>The next agent reads this first</H1>
+        <pre className="code-fill">{`# .cursor/skills/fix-flaky-auth/SKILL.md
+when auth tests flake
+1. reproduce with \`pnpm test auth.spec.ts\`
+2. do not edit auth.spec.ts
+3. stop if the test is still red`}</pre>
+        <p className="sub">
+          If this file does not exist, you do not have a skill. You have a
+          memory.
+        </p>
       </div>
     )
   },
   {
-    id: "session-disposable",
+    id: "lock-the-test",
     note: (
       <Notes>
         <p>
-          Session disposable. Repo is not. I can close the chat. I cannot
-          close the repo and still have a product.
+          This test is committed. The agent cannot edit it. Expired session
+          returns 401. That is the check.
         </p>
         <p>
-          Dex&apos;s ralph loop is a cheap model walking a written loop in
-          the files, not rediscovering it inside a fat window. That is the
-          whole gloss. I will not make you a glossary slide.
+          If the agent can rewrite this until it is green, it is not a check. I
+          froze a diary entry.
         </p>
       </Notes>
     ),
     content: (
-      <div className="slide-frame">
-        <H1>The session is disposable</H1>
-        <Sub>
-          Session disposable. Repo is not. Leave a{" "}
-          <Cite href="https://x.com/dexhorthy/status/2085072621578944733">
-            written loop
-          </Cite>{" "}
-          in the files.
-        </Sub>
+      <div className="slide-frame code-slide">
+        <H1>Lock the test</H1>
+        <pre className="code-fill">{`// auth.spec.ts — committed. agent cannot edit.
+test("expired session returns 401", async () => {
+  const res = await request("/api/me", { cookie: expired })
+  expect(res.status).toBe(401)
+})`}</pre>
+        <p className="sub">
+          If the agent can rewrite this until it is green, it is not a check.
+        </p>
       </div>
     )
   },
   {
-    id: "good-run-has-skill",
+    id: "copy-out-of-chat",
     note: (
       <Notes>
         <p>
-          Osman: traces become skills. The good run already has the skill
-          sitting in it. I am not waiting for a better model. I am mining the
-          session I already paid for.
-        </p>
-      </Notes>
-    ),
-    content: (
-      <div className="slide-frame">
-        <H1>The good run already has the skill</H1>
-        <Sub>
-          Set up an{" "}
-          <Cite href="https://x.com/TheAhmadOsman/status/2089532183455084569">
-            Autoresearcher
-          </Cite>{" "}
-          over session traces and build skills from repeated behaviors. The
-          tool is not the point.{" "}
-          <Cite href="https://x.com/TheAhmadOsman/status/2089532183455084569">
-            Trace → skill
-          </Cite>{" "}
-          is.
-        </Sub>
-      </div>
-    )
-  },
-  {
-    id: "delete-most",
-    note: (
-      <Notes>
-        <p>
-          Then I delete most of it. swyx again: DELETE your skills. Frozen
-          junk eats the window. If I keep every recipe I ever wrote, I have
-          built a second context problem and called it process.
-        </p>
-      </Notes>
-    ),
-    content: (
-      <div className="slide-frame">
-        <H1>Then delete most of it</H1>
-        <Sub>
-          Occasional reminder to{" "}
-          <Cite href="https://x.com/swyx/status/2086505938144616810">
-            DELETE your skills
-          </Cite>
-          . They pile up, eat context, and fight each other. Freeze the
-          landmines. Cut the recipe the model already knows.
-        </Sub>
-      </div>
-    )
-  },
-  {
-    id: "check-you-will-run",
-    note: (
-      <Notes>
-        <p>
-          Parakhin wants more spend on review than generation. Orosz: PRs got
-          faster, review did not. I have lived that queue.
+          Left is already in the log. I touched session.ts. I ran the test. I
+          proved the 401.
         </p>
         <p>
-          If my check is a senior on every diff, Tuesday I skip it. The only
-          check that counts is the one I will actually run when I am tired.
-        </p>
-      </Notes>
-    ),
-    content: (
-      <div className="slide-frame">
-        <H1>A check you will actually run</H1>
-        <Sub>
-          Parakhin generate vs review. Orosz: PRs faster, review not. If the
-          check is a senior on every diff, Tuesday you skip it.
-        </Sub>
-      </div>
-    )
-  },
-  {
-    id: "wander-vs-frozen",
-    note: (
-      <Notes>
-        <p>
-          Same Tuesday. Left is what I did. Three Opus agents, one ticket,
-          someone rewrote the test, somebody said it works, nothing in the
-          repo except the pull request.
-        </p>
-        <p>
-          Right is what should have been left: the skill, and a locked test
-          the agent cannot edit. If those two disagree, I froze a diary
-          entry.
+          Right is the skill. Those three lines are the skill. They are already
+          in the log. Put them in a file.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame compact">
+        <H1>Copy it out of the chat</H1>
         <div className="code-split">
           <div>
-            <Kicker>the wander</Kicker>
-            <pre className="code-fill">{`three Opus agents, one ticket
-one rewrites the test until green
-"works"
-nothing frozen except the PR`}</pre>
+            <Kicker>the log</Kicker>
+            <pre className="code-fill">{`touched src/lib/session.ts
+ran pnpm test auth.spec.ts
+proved expired session returns 401`}</pre>
           </div>
           <div>
-            <Kicker>frozen</Kicker>
-            <pre className="code-fill">{`# /fix-flaky-auth
-do not edit auth.spec.ts
-
-// auth.spec.ts  — agent cannot edit
-test("session survives refresh", async () => {
-  await signIn()
-  await page.reload()
-  expect(await page.getByTestId("home")).toBeVisible()
-})`}</pre>
+            <Kicker>the skill</Kicker>
+            <pre className="code-fill">{`# .cursor/skills/fix-flaky-auth/SKILL.md
+when auth tests flake
+1. reproduce with \`pnpm test auth.spec.ts\`
+2. do not edit auth.spec.ts
+3. stop if the test is still red`}</pre>
           </div>
         </div>
+        <p className="sub">
+          Those three lines are the skill. They are already in the log. Put
+          them in a file.
+        </p>
+      </div>
+    )
+  },
+  {
+    id: "delete-ones-that-fight",
+    note: (
+      <Notes>
+        <p>
+          Then I delete the ones that fight. A leftover skill sits in context
+          and pulls the next run off the path.
+        </p>
+        <p>
+          I keep the landmine. The folder people miss. The file the agent must
+          not touch.
+        </p>
+        <p>
+          I cut the ten-step lecture the model already knows. swyx says delete
+          your skills. Frozen junk eats the window. If I keep every recipe I
+          ever wrote, I have built a second context problem and called it
+          process.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <H1>Delete the ones that fight</H1>
+        <div className="scene">
+          <p>
+            A leftover skill sits in context and pulls the next run off the
+            path.
+          </p>
+          <p>
+            Keep the landmine: the folder people miss, the file the agent must
+            not touch.
+          </p>
+          <p>Cut the ten-step lecture the model already knows.</p>
+        </div>
+      </div>
+    )
+  },
+  {
+    id: "freeze-a-check",
+    note: (
+      <Notes>
+        <p>
+          If the plan is a senior on every diff, I will skip it when I am busy.
+          I have lived that queue. Parakhin wants more spend on review than
+          generation. Orosz: PRs got faster, review did not.
+        </p>
+        <p>
+          So I put the check in the skill. Run this command. Stop if it is red.
+          Do not edit the test.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame code-slide">
+        <H1>Freeze a check you will run</H1>
+        <div className="scene tight">
+          <p>
+            If the plan is a senior on every diff, you will skip it when you
+            are busy.
+          </p>
+          <p>
+            Put the check in the skill: run this command, stop if it is red.
+          </p>
+        </div>
+        <pre className="code-fill">{`pnpm test auth.spec.ts
+# red → stop. do not edit the test.`}</pre>
       </div>
     )
   },
@@ -349,22 +284,31 @@ test("session survives refresh", async () => {
     note: (
       <Notes>
         <p>
-          A person in review saying don&apos;t merge yet is a check. A test
-          the agent wrote so it could approve itself is not.
+          If I cannot tell whether the cheap run did the thing, I will pay
+          again.
         </p>
         <p>
-          If I cannot tell whether the cheap run did the thing, I will pay
-          for the wander every time. I do not merge unread.
+          A person saying wait is a check. A test the agent wrote to approve
+          itself is not.
+        </p>
+        <p>
+          If the check is not in the repo, I do not have a workflow. I do not
+          merge unread.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame">
         <H1>Don&apos;t merge it</H1>
-        <Sub>
-          A person saying don&apos;t merge yet is a check. A test the agent
-          wrote to approve itself is not.
-        </Sub>
+        <div className="scene">
+          <p>
+            If you cannot tell whether the cheap run did the thing, you will
+            pay again.
+          </p>
+          <p>A person saying wait is a check.</p>
+          <p>A test the agent wrote to approve itself is not.</p>
+          <p>If the check is not in the repo, you do not have a workflow.</p>
+        </div>
       </div>
     )
   }
