@@ -9,13 +9,20 @@ import { useDeckNavigation } from "../../hooks/useDeckNavigation";
 import { slides } from "../../lib/slides";
 
 const slideTitles: Record<string, string> = {
-  title: "You will burn tokens finding the move.",
-  "find-the-move": "find the move",
-  "dont-pay-twice": "don't pay to find it twice",
-  "freeze-it": "freeze it",
-  "same-task-two-ways": "same task two ways",
-  "same-task-visual": "the wander, then the skill",
-  "no-check-no-merge": "no check, no merge"
+  title: "Find the move.",
+  "paid-tuesday-twice": "I paid Tuesday twice",
+  "week-that-was-work": "The week that was actually work",
+  "six-accounts": "Six accounts, every five hours",
+  thesis:
+    "The failure is paying frontier prices to find the same move again next Tuesday.",
+  "write-the-path": "Write the path down",
+  "code-not-paragraph": "/fix-flaky-auth",
+  "session-disposable": "The session is disposable",
+  "good-run-has-skill": "The good run already has the skill",
+  "delete-most": "Then delete most of it",
+  "check-you-will-run": "A check you will actually run",
+  "wander-vs-frozen": "the wander / frozen",
+  "dont-merge": "Don't merge it"
 };
 
 function presenterTitle(slide: SlideDef) {

@@ -10,7 +10,7 @@
 ## Learned Workspace Facts
 
 - This workspace is a Next.js slide deck + presenter view (`find-the-move`) for Agrim Singh's 15-minute talk.
-- Thesis: you will burn tokens finding the move. The failure is paying frontier prices to find the same move again next Tuesday.
-- Spoken arc is six to eight slides: `title`, `find-the-move`, `dont-pay-twice`, `freeze-it`, `same-task-two-ways`, optional `same-task-visual`, `no-check-no-merge`.
-- Card titles and bodies in `lib/slides.tsx` are locked copy. Receipts (swyx, Dex, Osman, Parakhin, Orosz) live in speaker notes and as inline citations on the phrases they support.
+- Thesis: The failure is paying frontier prices to find the same move again next Tuesday. The title slide is only “Find the move.” plus byline; that sentence lives on its own photograph card (`thesis`).
+- Spoken arc is exactly 13 slides: `title`, `paid-tuesday-twice`, `week-that-was-work`, `six-accounts`, `thesis`, `write-the-path`, `code-not-paragraph`, `session-disposable`, `good-run-has-skill`, `delete-most`, `check-you-will-run`, `wander-vs-frozen`, `dont-merge`.
+- Card titles and bodies in `lib/slides.tsx` are locked copy. Receipts (swyx, Dex, Osman, Parakhin, Orosz) live as inline citations on the phrases they support, not footer dumps. `wander-vs-frozen` is a code contrast, not a philosophy table. `code-not-paragraph` is the locked `/fix-flaky-auth` skill, not a caption.
 - PartyKit / multiplayer stays inert. `localStorage` slide index is enough. `npm run dev` / `start` are pinned to hostname `127.0.0.1`.

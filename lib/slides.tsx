@@ -1,6 +1,6 @@
 import type { MouseEvent, ReactNode } from "react";
 
-import { H1, type SlideDef } from "../components/Slide";
+import { H1, Kicker, Sub, type SlideDef } from "../components/Slide";
 
 function Notes({ children }: { children: ReactNode }) {
   return <div>{children}</div>;
@@ -32,278 +32,331 @@ export const slides: SlideDef[] = [
     note: (
       <Notes>
         <p>
-          I am going to burn tokens this week. That is allowed. The thing I will
-          not do is pay frontier prices next Tuesday to find the same move
-          again. That is the dumb default in this room.
+          I am going to tell you what I did last Tuesday. Not a framework.
+          Fifteen minutes. If you already know the ending, stay for the part
+          where I admit I paid anyway.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <H1>Find the move.</H1>
+        <Sub>Agrim Singh · @agrimsingh</Sub>
+      </div>
+    )
+  },
+  {
+    id: "paid-tuesday-twice",
+    note: (
+      <Notes>
+        <p>
+          Last Tuesday I already knew the path. I opened a new agent anyway.
+          Frontier prices, same hour, same ticket. I am not confessing a
+          secret. I am describing the default.
         </p>
         <p>
-          Fifteen minutes. Five cards. Then I run the same task two ways. Then
-          we stop. I am not here to tell you to be cheap. I keep watching people
-          rent a search and call it a workflow.
+          The room laughs because they did it this morning. I did it this
+          morning. That laugh is the talk.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <H1>I paid Tuesday twice</H1>
+        <Sub>
+          Last Tuesday I already knew how to do the task. I opened a new agent
+          anyway. Frontier prices, same path, same hour. The room laughs
+          because they did it this morning.
+        </Sub>
+      </div>
+    )
+  },
+  {
+    id: "week-that-was-work",
+    note: (
+      <Notes>
+        <p>
+          The first wander is not the failure. That week is tuition. I am
+          paying to learn how this task is done in this repo. I have sat in
+          that week. A student in this room has sat in that week.
+        </p>
+        <p>
+          I keep the receipt. If I throw the chat away, I will buy the lesson
+          again, at the same price, and call it exploration.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <H1>The week that was actually work</H1>
+        <Sub>
+          The first wander is tuition. You are paying to learn how this task
+          is done in this repo. Keep the receipt. If you throw it away, you
+          will buy the lesson again.
+        </Sub>
+      </div>
+    )
+  },
+  {
+    id: "six-accounts",
+    note: (
+      <Notes>
+        <p>
+          Dex, Hyper Engineering chat. Six Claude Code accounts, maxed every
+          five-hour window so the tokens never sit idle. He calls that token
+          harder.
+        </p>
+        <p>
+          I have felt that number in my chest. It feels like a win. It is a
+          slot machine. The machine is the window, not the repo.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <H1>Six accounts, every five hours</H1>
+        <Sub>
+          Dex, Hyper Engineering chat: six Claude Code accounts, maxed every
+          five-hour window so the tokens never sit idle. He calls that token
+          harder. The number feels like a win. It is a slot machine.
+        </Sub>
+      </div>
+    )
+  },
+  {
+    id: "thesis",
+    note: (
+      <Notes>
+        <p>
+          That is the dumb default. Paying frontier prices next Tuesday to
+          find the same move again.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame">
         <H1>
-          You will burn tokens finding the move.
-          <br />
-          <span className="lead">
-            The failure is paying frontier prices to find the same move again
-            next Tuesday.
-          </span>
+          The failure is paying frontier prices to find the same move again
+          next Tuesday.
         </H1>
-        <p className="sub">Agrim Singh · @agrimsingh</p>
       </div>
     )
   },
   {
-    id: "find-the-move",
+    id: "write-the-path",
     note: (
       <Notes>
         <p>
-          First time through a hard thing, I am paying to learn how it is done.
-          The tokens are the work. That week can look messy and still be the
-          right week.
+          Whatever worked has to leave the chat. I do not mean a blog post. I
+          mean a skill, a slash command, a script, a test that goes red if
+          the move is wrong.
         </p>
         <p>
-          I have sat in that week. A student in this room has sat in that week.
-          You stay with a frontier model until the path shows up. swyx&apos;s
-          point is that people at the edge see the next loop first, because they
-          are the ones paying to find it.
-        </p>
-        <p>
-          I will not apologize for that bill. I will also not confuse it with
-          the product. The spend taught me the move. The spend is not what I
-          ship.
+          swyx&apos;s freeze: the larger model writes a compound tool so the
+          smaller one cannot invent a new path. Tonight I freeze one.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame">
-        <H1>find the move</H1>
-        <p className="sub">
-          The first time, the tokens are the work. You are paying to learn how
-          the thing is done. That spend is not the product.
-        </p>
-      </div>
-    )
-  },
-  {
-    id: "dont-pay-twice",
-    note: (
-      <Notes>
-        <p>
-          Tuesday. Same shape of ticket. If I open the frontier model again and
-          wander until it &quot;works,&quot; I rented a search. I did not ship a
-          workflow.
-        </p>
-        <p>
-          Dex, Hyper Engineering: six Claude accounts maxed every five hours.
-          That optimizes the node. It does not optimize the ship. Three agents
-          on one ticket with no locked check is a slot machine. The room name
-          for the debugging version is thrashmaxxing.
-        </p>
-        <p>
-          I am not mad at the first expensive week. I am mad at pretending the
-          second one is still exploration.
-        </p>
-      </Notes>
-    ),
-    content: (
-      <div className="slide-frame">
-        <H1>don&apos;t pay to find it twice</H1>
-        <p className="sub">
-          Same task shows up next Tuesday. If you burn the frontier model to
-          discover the same path again, you rented a search. You did not ship a
-          workflow.
-        </p>
-      </div>
-    )
-  },
-  {
-    id: "freeze-it",
-    note: (
-      <Notes>
-        <p>
-          When a sequence actually works, I write it down. Freeze it — put the
-          path in the repo so a cheaper model can walk it without inventing a
-          new one.
-        </p>
-        <p>
-          swyx, 17 August: the larger model writes a compound tool, a
-          deterministic script, so the smaller model cannot screw the move up.
-          Muscle memory. Dex, 5 August: a ralph loop is a cheap model walking a
-          written loop in the repo, not rediscovering it inside a fat window.
-          The trajectory leaves the context and lands in the files.
-        </p>
-        <p>
-          In Cursor that looks boring on purpose. A skill, a short recipe the
-          agent reads before it starts. A slash command. A script. A committed
-          failing test the agent is not allowed to edit. A short AGENTS.md that
-          points at the real file. Frontier writes it once. Composer or Auto
-          walks it.
-        </p>
-        <p>
-          Ahmad Osman, 18 August: Autoresearcher sitting on session traces,
-          writing skills from the things you keep doing. The tool is not the
-          point. Trace to skill is. Then you prune. swyx again, 9 August: delete
-          your skills. Frozen junk eats the window.
-        </p>
-        <p>
-          Parakhin wants serial depth, more spend on review than generation.
-          Orosz says human PR review will not hold. The review I can afford is
-          the check I froze. I am not being cheap. I found the move. I am trying
-          to keep the muscle from going soft.
-        </p>
-      </Notes>
-    ),
-    content: (
-      <div className="slide-frame">
-        <H1>freeze it</H1>
-        <p className="sub">
-          Write down the move that actually worked. A{" "}
-          <Cite href="https://x.com/TheAhmadOsman/status/2089532183455084569">skill</Cite>, a{" "}
-          <Cite href="https://x.com/dexhorthy/status/2085072621578944733">path</Cite>, a{" "}
+        <H1>Write the path down</H1>
+        <Sub>
+          Whatever worked has to leave the chat. A skill. A slash command. A
+          script. A test that goes red if the move is wrong. Tonight,{" "}
           <Cite href="https://x.com/swyx/status/2089499493083529476">
-            check a cheaper model can follow
-          </Cite>
-          . Forgetting is not always the bug. Searching again is.
-        </p>
+            freeze one
+          </Cite>{" "}
+          — a compound tool.
+        </Sub>
       </div>
     )
   },
   {
-    id: "same-task-two-ways",
+    id: "code-not-paragraph",
     note: (
       <Notes>
         <p>
-          Same recurring task. I run the expensive wander. I run the frozen
-          path. If they do not land in the same place, I froze a story about the
-          move, not the move.
+          This is the whole card. A locked Cursor skill. Reproduce the flake.
+          Do not edit the test. Fix the source. Stop when it is green.
         </p>
         <p>
-          I want you to see it, not hear a framework. Next card is the session,
-          then the skill it should have left behind. The second run can cost
-          less and still be the serious one.
+          If it is still a paragraph in my notes app, I have not frozen
+          anything.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame code-slide">
+        <pre className="code-fill">{`# /fix-flaky-auth
+
+1. Reproduce with \`pnpm test auth.spec.ts\`
+2. Do not edit \`auth.spec.ts\`
+3. Fix the source, not the assertion
+4. Stop when the locked test is green`}</pre>
+      </div>
+    )
+  },
+  {
+    id: "session-disposable",
+    note: (
+      <Notes>
+        <p>
+          Session disposable. Repo is not. I can close the chat. I cannot
+          close the repo and still have a product.
+        </p>
+        <p>
+          Dex&apos;s ralph loop is a cheap model walking a written loop in
+          the files, not rediscovering it inside a fat window. That is the
+          whole gloss. I will not make you a glossary slide.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame">
-        <H1>same task two ways</H1>
-        <p className="sub">
-          Run the expensive wander and the frozen path. If they do not land in
-          the same place, you froze a story about the move, not the move.
-        </p>
+        <H1>The session is disposable</H1>
+        <Sub>
+          Session disposable. Repo is not. Leave a{" "}
+          <Cite href="https://x.com/dexhorthy/status/2085072621578944733">
+            written loop
+          </Cite>{" "}
+          in the files.
+        </Sub>
       </div>
     )
   },
   {
-    id: "same-task-visual",
+    id: "good-run-has-skill",
     note: (
       <Notes>
         <p>
-          This is a Tuesday I have actually had. Three Opus agents on one flake.
-          One of them rewrites the test until it is green. Somebody says it
-          works. Nothing in the repo except the pull request.
+          Osman: traces become skills. The good run already has the skill
+          sitting in it. I am not waiting for a better model. I am mining the
+          session I already paid for.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <H1>The good run already has the skill</H1>
+        <Sub>
+          <Cite href="https://x.com/TheAhmadOsman/status/2089532183455084569">
+            Traces → skills
+          </Cite>
+          .
+        </Sub>
+      </div>
+    )
+  },
+  {
+    id: "delete-most",
+    note: (
+      <Notes>
+        <p>
+          Then I delete most of it. swyx again: DELETE your skills. Frozen
+          junk eats the window. If I keep every recipe I ever wrote, I have
+          built a second context problem and called it process.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <H1>Then delete most of it</H1>
+        <Sub>
+          <Cite href="https://x.com/swyx/status/2086505938144616810">
+            DELETE your skills
+          </Cite>
+          . Frozen junk eats the window.
+        </Sub>
+      </div>
+    )
+  },
+  {
+    id: "check-you-will-run",
+    note: (
+      <Notes>
+        <p>
+          Parakhin wants more spend on review than generation. Orosz: PRs got
+          faster, review did not. I have lived that queue.
         </p>
         <p>
-          What should have been left: a skill the next agent reads first, a
-          locked test it cannot edit, a cheaper model in a clean window walking
-          the file I already wrote down.
+          If my check is a senior on every diff, Tuesday I skip it. The only
+          check that counts is the one I will actually run when I am tired.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <H1>A check you will actually run</H1>
+        <Sub>
+          Parakhin generate vs review. Orosz: PRs faster, review not. If the
+          check is a senior on every diff, Tuesday you skip it.
+        </Sub>
+      </div>
+    )
+  },
+  {
+    id: "wander-vs-frozen",
+    note: (
+      <Notes>
+        <p>
+          Same Tuesday. Left is what I did. Three Opus agents, one ticket,
+          someone rewrote the test, somebody said it works, nothing in the
+          repo except the pull request.
         </p>
         <p>
-          If the wander and the frozen path disagree, I do not get to call the
-          skill done. I froze a diary entry.
+          Right is what should have been left: the skill, and a locked test
+          the agent cannot edit. If those two disagree, I froze a diary
+          entry.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame compact">
-        <div className="split deep-split">
+        <div className="code-split">
           <div>
-            <div className="kicker">the wander</div>
-            <div className="evidence-list">
-              <div className="evidence-item">
-                <div className="evidence-talk">14:02</div>
-                <div className="evidence-point">
-                  three Opus agents on the same ticket
-                </div>
-              </div>
-              <div className="evidence-item">
-                <div className="evidence-talk">14:11</div>
-                <div className="evidence-point">
-                  one rewrites the test until green
-                </div>
-              </div>
-              <div className="evidence-item">
-                <div className="evidence-talk">14:40</div>
-                <div className="evidence-point">it &quot;works&quot;</div>
-              </div>
-              <div className="evidence-item">
-                <div className="evidence-talk">repo</div>
-                <div className="evidence-point">
-                  nothing frozen except the pull request
-                </div>
-              </div>
-            </div>
+            <Kicker>the wander</Kicker>
+            <pre className="code-fill">{`14:02  three Opus agents, one ticket
+14:11  one rewrites the test until green
+14:40  "works"
+repo   nothing frozen except the PR`}</pre>
           </div>
           <div>
-            <div className="kicker">what it should have left</div>
-            <div className="evidence-list">
-              <div className="evidence-item">
-                <div className="evidence-talk">skill</div>
-                <div className="evidence-point">
-                  <code className="mono">/fix-flaky-auth</code> — recipe the
-                  next agent reads first
-                </div>
-              </div>
-              <div className="evidence-item">
-                <div className="evidence-talk">check</div>
-                <div className="evidence-point">
-                  <code className="mono">auth.spec.ts</code> committed, agent
-                  cannot edit
-                </div>
-              </div>
-              <div className="evidence-item">
-                <div className="evidence-talk">second run</div>
-                <div className="evidence-point">
-                  Composer, clean window, walks the file you already wrote
-                </div>
-              </div>
-            </div>
+            <Kicker>frozen</Kicker>
+            <pre className="code-fill">{`# /fix-flaky-auth
+do not edit auth.spec.ts
+
+// auth.spec.ts  — agent cannot edit
+test("session survives refresh", async () => {
+  await signIn()
+  await page.reload()
+  expect(await page.getByTestId("home")).toBeVisible()
+})`}</pre>
           </div>
         </div>
       </div>
     )
   },
   {
-    id: "no-check-no-merge",
+    id: "dont-merge",
     note: (
       <Notes>
         <p>
-          If I cannot tell whether the cheap run did the thing, I will pay for
-          the wander every time. That is the whole card.
+          A person in review saying don&apos;t merge yet is a check. A test
+          the agent wrote so it could approve itself is not.
         </p>
         <p>
-          A person in review saying do not merge yet is a check. A test the
-          agent wrote so it could approve itself is not.
-        </p>
-        <p>
-          If I cannot freeze a check, I do not have a tool yet. I have a vibe. I
-          do not merge unread.
+          If I cannot tell whether the cheap run did the thing, I will pay
+          for the wander every time. I do not merge unread.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame">
-        <H1>no check, no merge</H1>
-        <p className="sub">
-          If you cannot tell whether the cheap run did the thing, you will pay
-          for the wander every time. A person saying don&apos;t merge yet is a
-          check. A test the agent wrote to approve itself is not.
-        </p>
+        <H1>Don&apos;t merge it</H1>
+        <Sub>
+          A person saying don&apos;t merge yet is a check. A test the agent
+          wrote to approve itself is not.
+        </Sub>
       </div>
     )
   }
