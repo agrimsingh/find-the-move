@@ -510,8 +510,10 @@ seats taken == 1`}</pre>
     note: (
       <Notes>
         <p>
-          Frontier finds moves. Skills keep them found. Tests prove it&apos;s
-          still the move. Deletion stops a dead move from spending. Thank you.
+          Callback and out. Frontier is for finding moves. Skills are how a
+          found move stays found. Tests are how you know it&apos;s still the
+          move. And deletion is how you stop a dead move from spending your
+          money. Find the move once. Never pay for it twice. Thank you.
         </p>
       </Notes>
     ),
