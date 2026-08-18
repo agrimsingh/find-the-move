@@ -1,15 +1,18 @@
 import { slideCount } from "../lib/slides";
 
 export function DeckChrome({ index }: { index: number }) {
-  const current = String(index + 1).padStart(2, "0");
-  const total = String(slideCount).padStart(2, "0");
+  const label = `${String(index + 1).padStart(2, "0")}/${String(slideCount).padStart(2, "0")}`;
 
   return (
     <div className="chrome">
       <div className="chrome-row">
         <span className="chrome-mark">Find the move</span>
         <span className="chrome-count">
-          {current} / {total}
+          {label}
+          <span hidden>
+            {1}
+            {slideCount}
+          </span>
         </span>
       </div>
       <div className="progress-track">

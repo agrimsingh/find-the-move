@@ -798,6 +798,80 @@ a {
   margin-top: 28px;
 }
 
+
+.slide-frame.compact .h1,
+.slide-frame.code-slide .h1 {
+  flex: 0 0 auto;
+  font-size: clamp(36px, 4.4vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.slide-frame.code-slide .sub,
+.slide-frame.compact .sub {
+  margin-top: 18px;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.code-slide .code-fill {
+  width: 100%;
+}
+
+.code-fill {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: clamp(20px, 2.2vw, 30px);
+  line-height: 1.55;
+  letter-spacing: -0.02em;
+  white-space: pre-wrap;
+  tab-size: 2;
+}
+
+.slide-frame > .sub + .code-fill,
+.slide-frame > .sub + .code-split {
+  margin-top: 28px;
+}
+
+.slide-frame.code-slide .code-fill {
+  font-size: clamp(16px, 1.75vw, 24px);
+}
+
+.code-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 40px 56px;
+  width: 100%;
+  align-items: start;
+}
+
+.code-split .kicker {
+  margin-bottom: 18px;
+}
+
+.code-split .code-fill {
+  font-size: clamp(15px, 1.45vw, 20px);
+  line-height: 1.5;
+}
+
+.slide-frame.compact > .code-split {
+  flex: 0 0 auto;
+  width: 100%;
+  margin-top: 0;
+}
+
+.code-note {
+  margin: 22px 0 0;
+  max-width: 920px;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
 .chrome {
   pointer-events: none;
   position: absolute;
@@ -1102,7 +1176,9 @@ a {
 
   .h2,
   .slide-frame.compact .h2,
-  .slide-frame.fill .h2 {
+  .slide-frame.fill .h2,
+  .slide-frame.compact .h1,
+  .slide-frame.code-slide .h1 {
     font-size: 32px;
     line-height: 1.1;
   }
@@ -1128,6 +1204,7 @@ a {
   .worksheet,
   .timeline,
   .split,
+  .code-split,
   .question-list.panels,
   .role-strip,
   .aside-rail,
