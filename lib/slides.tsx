@@ -53,23 +53,23 @@ function SpendAxis() {
   return (
     <svg
       className="diagram spend-axis"
-      viewBox="0 0 520 80"
+      viewBox="0 0 640 88"
       role="img"
       aria-label="Spend to find versus spend to re-find"
     >
-      <line x1="36" y1="36" x2="484" y2="36" />
-      <circle cx="48" cy="36" r="5" fill="var(--accent)" />
-      <circle cx="472" cy="36" r="5" fill="var(--danger-dim)" />
-      <text x="48" y="18" textAnchor="middle">
+      <line x1="48" y1="40" x2="592" y2="40" />
+      <circle cx="80" cy="40" r="5" fill="var(--accent)" />
+      <circle cx="560" cy="40" r="5" fill="var(--danger-dim)" />
+      <text x="80" y="72" textAnchor="middle">
         spend to find
       </text>
-      <text x="472" y="18" textAnchor="middle">
+      <text x="560" y="72" textAnchor="middle">
         spend to re-find
       </text>
-      <text x="48" y="62" textAnchor="middle">
+      <text x="80" y="22" textAnchor="middle">
         run 1
       </text>
-      <text x="472" y="62" textAnchor="middle">
+      <text x="560" y="22" textAnchor="middle">
         run 2
       </text>
     </svg>
@@ -128,12 +128,6 @@ function PaidChart() {
       <text x="16" y="148" className="diagram-kicker">
         minutes
       </text>
-      <text x="400" y="72" className="diagram-caption">
-        same task can vary up to 30× — the wander is a gamble,
-      </text>
-      <text x="400" y="88" className="diagram-caption">
-        the skill kills the variance
-      </text>
     </svg>
   );
 }
@@ -158,7 +152,7 @@ function DepreciationCurve() {
         fill="none"
       />
       <line x1="228" y1="24" x2="228" y2="204" className="diagram-dash" />
-      <text x="234" y="20">
+      <text x="222" y="20" textAnchor="end">
         the world moved
       </text>
     </svg>
@@ -470,6 +464,10 @@ seats taken == 1`}</pre>
       <div className="slide-frame compact">
         <H1>What I actually paid</H1>
         <PaidChart />
+        <p className="chart-caption">
+          same task can vary up to 30× — the wander is a gamble, the skill
+          kills the variance
+        </p>
         <p className="evidence">
           token variance &amp; cost-accuracy: arxiv.org/abs/2604.22750
         </p>
