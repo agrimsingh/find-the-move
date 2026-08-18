@@ -239,10 +239,16 @@ export const slides: SlideDef[] = [
       <div className="slide-frame">
         <H1>The good run already has the skill</H1>
         <Sub>
+          Set up an{" "}
           <Cite href="https://x.com/TheAhmadOsman/status/2089532183455084569">
-            Traces → skills
-          </Cite>
-          .
+            Autoresearcher
+          </Cite>{" "}
+          over session traces and build skills from repeated behaviors. The
+          tool is not the point.{" "}
+          <Cite href="https://x.com/TheAhmadOsman/status/2089532183455084569">
+            Trace → skill
+          </Cite>{" "}
+          is.
         </Sub>
       </div>
     )
@@ -262,10 +268,12 @@ export const slides: SlideDef[] = [
       <div className="slide-frame">
         <H1>Then delete most of it</H1>
         <Sub>
+          Occasional reminder to{" "}
           <Cite href="https://x.com/swyx/status/2086505938144616810">
             DELETE your skills
           </Cite>
-          . Frozen junk eats the window.
+          . They pile up, eat context, and fight each other. Freeze the
+          landmines. Cut the recipe the model already knows.
         </Sub>
       </div>
     )
