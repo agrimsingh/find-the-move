@@ -6,18 +6,23 @@ import type { SlideDef } from "../../components/Slide";
 import { SlidePreview } from "../../components/SlidePreview";
 import { formatElapsed, useElapsedTimer } from "../../hooks/useElapsedTimer";
 import { useDeckNavigation } from "../../hooks/useDeckNavigation";
-import { slides } from "../../lib/slides";
+import { slides, stepSpoken } from "../../lib/slides";
 
 const slideTitles: Record<string, string> = {
   title: "Find the move.",
-  "let-it-wander": "I let it wander",
-  "opened-a-new-chat": "I opened a new chat",
+  wander: "I let it wander",
+  "new-chat": "I opened a new chat",
   thesis: "The failure is paying to find the same move again.",
-  "skill-stops-paying": "The skill is how I stop paying",
-  "copied-the-run": "I copied the expensive run into that file",
+  "two-maxes": "Token-maxing was the right call. Once.",
+  "the-move": "The move, in two lines",
+  "skill-file": "The skill is how I stop paying",
+  "copied-the-run": "The expensive run already wrote this file",
+  demo: "cheap model · clean window · reads the file first",
+  "demo-fallback": "demo fallback",
+  "the-chart": "What I actually paid",
   "locked-the-test": "I locked the test so green means the path held",
-  "deleted-the-skill": "I deleted the skill that made me pay twice",
-  "dont-merge": "I don't merge it"
+  depreciation: "Compounding works on debt too.",
+  close: "Find the move once. Never pay for it twice."
 };
 
 function presenterTitle(slide: SlideDef) {
@@ -46,7 +51,8 @@ export default function PresenterPage() {
     });
   const elapsed = useElapsedTimer();
   const slide = slides[index];
-  const nextSlide = index < slides.length - 1 ? slides[index + 1] : null;
+  const nextIndex = stepSpoken(index, 1);
+  const nextSlide = nextIndex !== index ? slides[nextIndex] : null;
   const audienceHref = syncEnabled
     ? `/?room=${encodeURIComponent(room)}&sync=1`
     : "/";
@@ -82,8 +88,8 @@ export default function PresenterPage() {
         <div className="presenter-controls" aria-label="Presenter controls">
           <button
             aria-label="Previous slide"
-            disabled={index === 0}
-            onClick={() => setIndex((current) => current - 1)}
+            disabled={stepSpoken(index, -1) === index}
+            onClick={() => setIndex((current) => stepSpoken(current, -1))}
             type="button"
           >
             <ChevronLeft size={20} strokeWidth={2.4} />
@@ -91,8 +97,8 @@ export default function PresenterPage() {
           <div className="timer">{formatElapsed(elapsed)}</div>
           <button
             aria-label="Next slide"
-            disabled={index === slideCount - 1}
-            onClick={() => setIndex((current) => current + 1)}
+            disabled={stepSpoken(index, 1) === index}
+            onClick={() => setIndex((current) => stepSpoken(current, 1))}
             type="button"
           >
             <ChevronRight size={20} strokeWidth={2.4} />

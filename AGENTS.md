@@ -1,18 +1,21 @@
 ## Learned User Preferences
 
-- Keep presentation rigor via a claim, a scene, and the how on the card. Do not turn cards into taxonomies, glossaries, or two-camps tables.
-- Prefer humanized, opinionated slide and speaker-note copy. Claim is already the slide. Do not add a subtitle that restates it, a takeaway footer, or a recap landing.
+- Real source is allowed on exactly two slides: `the-move` (SQL) and `skill-file` (verbatim SKILL.md). Structured English everywhere else.
+- Copy in `lib/slides.tsx` is locked to the 19 Aug 2026 spec. Do not restyle claims as taxonomies, glossaries, or two-camps tables.
 - Prefer a Vercel-like cool-black dark theme with Geist (Sans/Mono), spare blue signal accent, and restrained chrome—not warm charcoal/orange product UI.
-- Avoid sparse slides with large empty regions; tighten composition so content occupies the frame purposefully.
-- Avoid forced card/box grids; de-card or use layout patterns that do not feel like dashboard tiles unless the card earns its keep.
-- Title slide should credit Agrim Singh / @agrimsingh. No AIEWF kicker. First person. No other people's names on slides or in notes.
-- The room already knows what a skill is. Do not add slash-command or primer slides. Meat is the token move.
+- Dim red (`--danger-dim`) is allowed only for: chart bar 2, two-maxes run-2 dot, and the depreciation line below zero.
+- Avoid forced card/box grids and taxonomies. First person. No primer. Title slide is name + handle only. No other people's names on slides.
+- Evidence lives in speaker notes or a tiny `.evidence` footnote (`two-maxes`, `the-chart`, `depreciation` only). Never a citation block.
+- Every scene slide: at most ONE on-screen sentence. The story is spoken. Exceptions: `two-maxes` and `depreciation` are two short stacked lines as written.
+- Title slide credits Agrim Singh / @agrimsingh. No AIEWF kicker.
+- All diagrams are hand-authored inline SVG. Zero images.
 
 ## Learned Workspace Facts
 
 - This workspace is a Next.js slide deck + presenter view (`find-the-move`) for Agrim Singh's 15-minute talk.
 - The example is the last-seat race: two people bought the last seat; both requests saw one left; both wrote. The path is taking the seat and checking the seat in the same step. The second buyer gets nothing.
-- Thesis card H1 is “The failure is paying to find the same move again.” The title slide is only “Find the move.” plus byline.
-- Spoken arc is exactly 9 slides: `title`, `wander`, `new-chat`, `thesis`, `skill-stops-paying`, `copied-the-run`, `locked-the-test`, `deleted-the-skill`, `dont-merge`. `slides.length === 9`.
-- Card titles and bodies in `lib/slides.tsx` are locked copy. `skill-stops-paying` and `locked-the-test` are compact code-slides with structured English, not source files. `copied-the-run` is a short log-versus-skill split. The skill is how I stop paying: frontier found the path once; I do not pay to find it again.
+- Spoken arc is exactly 13 slides: `title`, `wander`, `new-chat`, `thesis`, `two-maxes`, `the-move`, `skill-file`, `copied-the-run`, `demo`, `the-chart`, `locked-the-test`, `depreciation`, `close`. One gated holding slide: `demo-fallback`. `slides.filter(s => !s.holding).length === 13`.
+- Thesis card H1 is “The failure is paying to find the same move again.” Title slide is only “Find the move.” plus byline. Close is “Find the move once. Never pay for it twice.”
+- Chart units are wall-clock minutes (wander 40, re-find 40, replay labeled “a cheap run”). Do not invent dollars or token counts. `[??]` blocks the build.
+- Next/prev skip holding slides. Key `d`/`D` jumps to the first holding slide, or off it to the next spoken.
 - PartyKit / multiplayer stays inert. `localStorage` slide index is enough. `npm run dev` / `start` are pinned to hostname `127.0.0.1`.
