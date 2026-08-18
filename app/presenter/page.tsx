@@ -9,13 +9,18 @@ import { useDeckNavigation } from "../../hooks/useDeckNavigation";
 import { slides } from "../../lib/slides";
 
 const slideTitles: Record<string, string> = {
-  title: "You will burn tokens finding the move.",
-  "find-the-move": "find the move",
-  "dont-pay-twice": "don't pay to find it twice",
-  "freeze-it": "freeze it",
-  "same-task-two-ways": "same task two ways",
-  "same-task-visual": "the wander, then the skill",
-  "no-check-no-merge": "no check, no merge"
+  title: "Find the move.",
+  wander: "I let it wander",
+  "new-chat": "I opened a new chat",
+  thesis: "The failure is paying to find the same move again.",
+  "wrote-the-steps": "I wrote the steps that worked",
+  "name-to-type": "I gave the next chat a name to type",
+  "command-is-the-command": "The command is the command",
+  "locked-the-test": "I locked the test",
+  "two-lines": "Two lines that point at those files",
+  "copied-from-chat": "I copied it from the chat",
+  "deleted-the-recipe": "I deleted the recipe that sent it to the route",
+  "dont-merge": "I don't merge it"
 };
 
 function presenterTitle(slide: SlideDef) {

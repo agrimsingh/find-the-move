@@ -1,29 +1,9 @@
-import type { MouseEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 
-import { H1, type SlideDef } from "../components/Slide";
+import { H1, Kicker, Sub, type SlideDef } from "../components/Slide";
 
 function Notes({ children }: { children: ReactNode }) {
   return <div>{children}</div>;
-}
-
-function Cite({
-  href,
-  children
-}: {
-  href: string;
-  children: ReactNode;
-}) {
-  return (
-    <a
-      className="cite"
-      href={href}
-      rel="noreferrer"
-      target="_blank"
-      onClick={(event: MouseEvent<HTMLAnchorElement>) => event.stopPropagation()}
-    >
-      {children}
-    </a>
-  );
 }
 
 export const slides: SlideDef[] = [
@@ -32,278 +12,455 @@ export const slides: SlideDef[] = [
     note: (
       <Notes>
         <p>
-          I am going to burn tokens this week. That is allowed. The thing I will
-          not do is pay frontier prices next Tuesday to find the same move
-          again. That is the dumb default in this room.
+          Name and handle. That is the whole card. I am not going to put the
+          claim up here.
         </p>
         <p>
-          Fifteen minutes. Five cards. Then I run the same task two ways. Then
-          we stop. I am not here to tell you to be cheap. I keep watching people
-          rent a search and call it a workflow.
+          If you already know where this goes, stay for the part where I show
+          you the file.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame">
-        <H1>
-          You will burn tokens finding the move.
-          <br />
-          <span className="lead">
-            The failure is paying frontier prices to find the same move again
-            next Tuesday.
-          </span>
-        </H1>
-        <p className="sub">Agrim Singh · @agrimsingh</p>
+        <H1>Find the move.</H1>
+        <Sub>Agrim Singh · @agrimsingh</Sub>
       </div>
     )
   },
   {
-    id: "find-the-move",
+    id: "wander",
     note: (
       <Notes>
         <p>
-          First time through a hard thing, I am paying to learn how it is done.
-          The tokens are the work. That week can look messy and still be the
-          right week.
+          I had a failing test. auth.spec.ts. Expired session should return
+          401. It did not.
         </p>
         <p>
-          I have sat in that week. A student in this room has sat in that week.
-          You stay with a frontier model until the path shows up. swyx&apos;s
-          point is that people at the edge see the next loop first, because they
-          are the ones paying to find it.
+          I let the agent wander. It opened src/routes/auth.ts. Then another
+          file that was also wrong. Forty minutes later the test was green.
+          The bug was in src/lib/session.ts.
         </p>
         <p>
-          I will not apologize for that bill. I will also not confuse it with
-          the product. The spend taught me the move. The spend is not what I
-          ship.
+          I had paid to learn which file to open and which command to run.
+          That is the scene. Not a different ticket. One failing auth test.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame">
-        <H1>find the move</H1>
+        <H1>I let it wander</H1>
+        <div className="scene">
+          <p>
+            I had a failing test. auth.spec.ts. Expired session should return
+            401. It did not.
+          </p>
+          <p>
+            I let the agent wander. It opened src/routes/auth.ts. Then another
+            file that was also wrong.
+          </p>
+          <p>
+            Forty minutes later the test was green. The bug was in
+            src/lib/session.ts.
+          </p>
+          <p>
+            I had paid to learn which file to open and which command to run.
+          </p>
+        </div>
+      </div>
+    )
+  },
+  {
+    id: "new-chat",
+    note: (
+      <Notes>
+        <p>
+          Same kind of failure. New chat. Empty context. It opened
+          src/routes/auth.ts again.
+        </p>
+        <p>
+          The path was sitting in the last transcript: session.ts, pnpm test
+          auth.spec.ts, do not edit the test.
+        </p>
+        <p>
+          The repo still only had auth.spec.ts. Nothing for the new chat to
+          read. I paid to find the move, then I threw the move away.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <H1>I opened a new chat</H1>
+        <div className="scene">
+          <p>Same kind of failure. New chat. Empty context.</p>
+          <p>It opened src/routes/auth.ts again.</p>
+          <p>
+            The path was sitting in the last transcript: session.ts, pnpm test
+            auth.spec.ts, do not edit the test.
+          </p>
+          <p>
+            The repo still only had auth.spec.ts. Nothing for the new chat to
+            read.
+          </p>
+        </div>
+      </div>
+    )
+  },
+  {
+    id: "thesis",
+    note: (
+      <Notes>
+        <p>
+          That is the failure. Not the first wander. The first wander is how I
+          learn the repo.
+        </p>
+        <p>The failure is paying to find the same move again.</p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <H1>The failure is paying to find the same move again.</H1>
+      </div>
+    )
+  },
+  {
+    id: "wrote-the-steps",
+    note: (
+      <Notes>
+        <p>
+          I took the run that went green and wrote the steps into a file the
+          next chat reads first. That file is a skill: a short recipe, not a
+          memory in my head.
+        </p>
+        <p>
+          The next chat starts here. It does not have to open the route file.
+          Osman mines traces into skills —{" "}
+          <a
+            className="cite"
+            href="https://x.com/TheAhmadOsman/status/2089532183455084569"
+            rel="noreferrer"
+            target="_blank"
+          >
+            https://x.com/TheAhmadOsman/status/2089532183455084569
+          </a>
+          . I do not need a tool for that. I need this file.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame compact code-slide">
+        <H1>I wrote the steps that worked</H1>
+        <div className="scene tight">
+          <p>
+            I took the run that went green and wrote the steps into a file the
+            next chat reads first.
+          </p>
+          <p>
+            That file is a skill: a short recipe, not a memory in my head.
+          </p>
+          <p>
+            The next chat starts here. It does not have to open the route
+            file.
+          </p>
+        </div>
+        <pre className="code-fill">{`# .cursor/skills/fix-auth-test/SKILL.md
+when auth.spec.ts fails
+1. open src/lib/session.ts — not the route file
+2. run \`pnpm test auth.spec.ts\`
+3. do not edit auth.spec.ts
+4. stop if it is still red`}</pre>
+      </div>
+    )
+  },
+  {
+    id: "name-to-type",
+    note: (
+      <Notes>
+        <p>
+          I do not want to paste that recipe every time. I made a slash
+          command, /fix-auth-test, that opens this skill.
+        </p>
+        <p>
+          I type the name. The new chat starts on session.ts, not on the
+          route. swyx&apos;s compound tool is the same idea — the larger model
+          writes a name the next run can type:{" "}
+          <a
+            className="cite"
+            href="https://x.com/swyx/status/2089499493083529476"
+            rel="noreferrer"
+            target="_blank"
+          >
+            https://x.com/swyx/status/2089499493083529476
+          </a>
+          .
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <H1>I gave the next chat a name to type</H1>
+        <div className="scene tight">
+          <p>I do not want to paste that recipe every time.</p>
+          <p>
+            I made a slash command, /fix-auth-test, that opens this skill.
+          </p>
+          <p>
+            I type the name. The new chat starts on session.ts, not on the
+            route.
+          </p>
+        </div>
+        <p className="command-name">/fix-auth-test</p>
+      </div>
+    )
+  },
+  {
+    id: "command-is-the-command",
+    note: (
+      <Notes>
+        <p>
+          The check is not a paragraph about testing. It is one line the skill
+          already runs: pnpm test auth.spec.ts.
+        </p>
+        <p>
+          If that is red, stop. Do not edit the test to make it green. Dex&apos;s
+          ralph loop is a cheap model walking a written command in the files,
+          not rediscovering it inside a fat window:{" "}
+          <a
+            className="cite"
+            href="https://x.com/dexhorthy/status/2085072621578944733"
+            rel="noreferrer"
+            target="_blank"
+          >
+            https://x.com/dexhorthy/status/2085072621578944733
+          </a>
+          .
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame code-slide">
+        <H1>The command is the command</H1>
+        <div className="scene tight">
+          <p>The check is not a paragraph about testing.</p>
+          <p>It is one line the skill already runs:</p>
+        </div>
+        <pre className="code-fill one-line">{`pnpm test auth.spec.ts`}</pre>
         <p className="sub">
-          The first time, the tokens are the work. You are paying to learn how
-          the thing is done. That spend is not the product.
+          If that is red, stop. Do not edit the test to make it green.
         </p>
       </div>
     )
   },
   {
-    id: "dont-pay-twice",
+    id: "locked-the-test",
     note: (
       <Notes>
         <p>
-          Tuesday. Same shape of ticket. If I open the frontier model again and
-          wander until it &quot;works,&quot; I rented a search. I did not ship a
-          workflow.
+          The agent will edit auth.spec.ts until the assertion passes. That is
+          it marking its own homework.
         </p>
         <p>
-          Dex, Hyper Engineering: six Claude accounts maxed every five hours.
-          That optimizes the node. It does not optimize the ship. Three agents
-          on one ticket with no locked check is a slot machine. The room name
-          for the debugging version is thrashmaxxing.
-        </p>
-        <p>
-          I am not mad at the first expensive week. I am mad at pretending the
-          second one is still exploration.
+          I left the test in the repo and told the agent it cannot touch that
+          file. If the cheap run goes green because it rewrote this, that is
+          not a fix.
         </p>
       </Notes>
     ),
     content: (
-      <div className="slide-frame">
-        <H1>don&apos;t pay to find it twice</H1>
+      <div className="slide-frame compact code-slide">
+        <H1>I locked the test</H1>
+        <div className="scene tight">
+          <p>
+            The agent will edit auth.spec.ts until the assertion passes. That
+            is it marking its own homework.
+          </p>
+          <p>
+            I left the test in the repo and told the agent it cannot touch
+            that file.
+          </p>
+        </div>
+        <pre className="code-fill">{`// auth.spec.ts — committed. agent cannot edit.
+test("expired session returns 401", async () => {
+  const res = await request("/api/me", { cookie: expired })
+  expect(res.status).toBe(401)
+})`}</pre>
         <p className="sub">
-          Same task shows up next Tuesday. If you burn the frontier model to
-          discover the same path again, you rented a search. You did not ship a
-          workflow.
+          If the cheap run goes green because it rewrote this, that is not a
+          fix.
         </p>
       </div>
     )
   },
   {
-    id: "freeze-it",
+    id: "two-lines",
     note: (
       <Notes>
         <p>
-          When a sequence actually works, I write it down. Freeze it — put the
-          path in the repo so a cheaper model can walk it without inventing a
-          new one.
+          AGENTS.md is not a novel about how I think. It is two lines the next
+          chat sees.
         </p>
         <p>
-          swyx, 17 August: the larger model writes a compound tool, a
-          deterministic script, so the smaller model cannot screw the move up.
-          Muscle memory. Dex, 5 August: a ralph loop is a cheap model walking a
-          written loop in the repo, not rediscovering it inside a fat window.
-          The trajectory leaves the context and lands in the files.
-        </p>
-        <p>
-          In Cursor that looks boring on purpose. A skill, a short recipe the
-          agent reads before it starts. A slash command. A script. A committed
-          failing test the agent is not allowed to edit. A short AGENTS.md that
-          points at the real file. Frontier writes it once. Composer or Auto
-          walks it.
-        </p>
-        <p>
-          Ahmad Osman, 18 August: Autoresearcher sitting on session traces,
-          writing skills from the things you keep doing. The tool is not the
-          point. Trace to skill is. Then you prune. swyx again, 9 August: delete
-          your skills. Frozen junk eats the window.
-        </p>
-        <p>
-          Parakhin wants serial depth, more spend on review than generation.
-          Orosz says human PR review will not hold. The review I can afford is
-          the check I froze. I am not being cheap. I found the move. I am trying
-          to keep the muscle from going soft.
+          Same path as the skill. Sitting where a new chat can find it. If
+          those two lines are not in the repo, I still only have a memory.
         </p>
       </Notes>
     ),
     content: (
-      <div className="slide-frame">
-        <H1>freeze it</H1>
+      <div className="slide-frame code-slide">
+        <H1>Two lines that point at those files</H1>
+        <div className="scene tight">
+          <p>AGENTS.md is not a novel about how I think.</p>
+          <p>It is two lines the next chat sees:</p>
+        </div>
+        <pre className="code-fill">{`auth tests: read .cursor/skills/fix-auth-test/SKILL.md
+do not edit auth.spec.ts`}</pre>
         <p className="sub">
-          Write down the move that actually worked. A{" "}
-          <Cite href="https://x.com/TheAhmadOsman/status/2089532183455084569">skill</Cite>, a{" "}
-          <Cite href="https://x.com/dexhorthy/status/2085072621578944733">path</Cite>, a{" "}
-          <Cite href="https://x.com/swyx/status/2089499493083529476">
-            check a cheaper model can follow
-          </Cite>
-          . Forgetting is not always the bug. Searching again is.
+          Same path. Sitting where a new chat can find it.
         </p>
       </div>
     )
   },
   {
-    id: "same-task-two-ways",
+    id: "copied-from-chat",
     note: (
       <Notes>
         <p>
-          Same recurring task. I run the expensive wander. I run the frozen
-          path. If they do not land in the same place, I froze a story about the
-          move, not the move.
+          I did not invent a skill. The good run already said this. Left is
+          the log. Right is the file.
         </p>
         <p>
-          I want you to see it, not hear a framework. Next card is the session,
-          then the skill it should have left behind. The second run can cost
-          less and still be the serious one.
-        </p>
-      </Notes>
-    ),
-    content: (
-      <div className="slide-frame">
-        <H1>same task two ways</H1>
-        <p className="sub">
-          Run the expensive wander and the frozen path. If they do not land in
-          the same place, you froze a story about the move, not the move.
-        </p>
-      </div>
-    )
-  },
-  {
-    id: "same-task-visual",
-    note: (
-      <Notes>
-        <p>
-          This is a Tuesday I have actually had. Three Opus agents on one flake.
-          One of them rewrites the test until it is green. Somebody says it
-          works. Nothing in the repo except the pull request.
-        </p>
-        <p>
-          What should have been left: a skill the next agent reads first, a
-          locked test it cannot edit, a cheaper model in a clean window walking
-          the file I already wrote down.
-        </p>
-        <p>
-          If the wander and the frozen path disagree, I do not get to call the
-          skill done. I froze a diary entry.
+          Those four lines are the skill. I copied them into a file. Osman
+          again: traces become skills —{" "}
+          <a
+            className="cite"
+            href="https://x.com/TheAhmadOsman/status/2089532183455084569"
+            rel="noreferrer"
+            target="_blank"
+          >
+            https://x.com/TheAhmadOsman/status/2089532183455084569
+          </a>
+          .
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame compact">
-        <div className="split deep-split">
+        <H1>I copied it from the chat</H1>
+        <div className="scene tight">
+          <p>I did not invent a skill. The good run already said this.</p>
+        </div>
+        <div className="code-split">
           <div>
-            <div className="kicker">the wander</div>
-            <div className="evidence-list">
-              <div className="evidence-item">
-                <div className="evidence-talk">14:02</div>
-                <div className="evidence-point">
-                  three Opus agents on the same ticket
-                </div>
-              </div>
-              <div className="evidence-item">
-                <div className="evidence-talk">14:11</div>
-                <div className="evidence-point">
-                  one rewrites the test until green
-                </div>
-              </div>
-              <div className="evidence-item">
-                <div className="evidence-talk">14:40</div>
-                <div className="evidence-point">it &quot;works&quot;</div>
-              </div>
-              <div className="evidence-item">
-                <div className="evidence-talk">repo</div>
-                <div className="evidence-point">
-                  nothing frozen except the pull request
-                </div>
-              </div>
-            </div>
+            <Kicker>the log</Kicker>
+            <pre className="code-fill">{`opened src/routes/auth.ts — wrong
+opened src/lib/session.ts — right
+ran pnpm test auth.spec.ts — green
+do not edit auth.spec.ts`}</pre>
           </div>
           <div>
-            <div className="kicker">what it should have left</div>
-            <div className="evidence-list">
-              <div className="evidence-item">
-                <div className="evidence-talk">skill</div>
-                <div className="evidence-point">
-                  <code className="mono">/fix-flaky-auth</code> — recipe the
-                  next agent reads first
-                </div>
-              </div>
-              <div className="evidence-item">
-                <div className="evidence-talk">check</div>
-                <div className="evidence-point">
-                  <code className="mono">auth.spec.ts</code> committed, agent
-                  cannot edit
-                </div>
-              </div>
-              <div className="evidence-item">
-                <div className="evidence-talk">second run</div>
-                <div className="evidence-point">
-                  Composer, clean window, walks the file you already wrote
-                </div>
-              </div>
-            </div>
+            <Kicker>the skill</Kicker>
+            <pre className="code-fill">{`# .cursor/skills/fix-auth-test/SKILL.md
+when auth.spec.ts fails
+1. open src/lib/session.ts — not the route file
+2. run \`pnpm test auth.spec.ts\`
+3. do not edit auth.spec.ts
+4. stop if it is still red`}</pre>
+          </div>
+        </div>
+        <p className="sub">
+          Those four lines are the skill. I copied them into a file.
+        </p>
+      </div>
+    )
+  },
+  {
+    id: "deleted-the-recipe",
+    note: (
+      <Notes>
+        <p>
+          I had an old skill that said start in the route file. The new chat
+          listened and went there again. That is how you pay twice with a
+          recipe already in the repo.
+        </p>
+        <p>
+          I kept one landmine: open session.ts, do not edit the test. I cut
+          the rest. swyx: delete your skills — frozen junk eats the window:{" "}
+          <a
+            className="cite"
+            href="https://x.com/swyx/status/2086505938144616810"
+            rel="noreferrer"
+            target="_blank"
+          >
+            https://x.com/swyx/status/2086505938144616810
+          </a>
+          .
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame compact code-slide">
+        <H1>I deleted the recipe that sent it to the route</H1>
+        <div className="scene tight">
+          <p>
+            I had an old skill that said start in the route file. The new
+            chat listened and went there again.
+          </p>
+          <p>
+            That is how you pay twice with a recipe already in the repo.
+          </p>
+          <p>
+            I kept one landmine: open session.ts, do not edit the test. I cut
+            the rest.
+          </p>
+        </div>
+        <div className="code-split">
+          <div>
+            <Kicker>deleted</Kicker>
+            <pre className="code-fill">{`# old skill
+when auth.spec.ts fails
+1. start in src/routes/auth.ts`}</pre>
+          </div>
+          <div>
+            <Kicker>kept</Kicker>
+            <pre className="code-fill">{`# .cursor/skills/fix-auth-test/SKILL.md
+open src/lib/session.ts
+do not edit auth.spec.ts`}</pre>
           </div>
         </div>
       </div>
     )
   },
   {
-    id: "no-check-no-merge",
+    id: "dont-merge",
     note: (
       <Notes>
         <p>
-          If I cannot tell whether the cheap run did the thing, I will pay for
-          the wander every time. That is the whole card.
+          A cheaper model can make auth.spec.ts green by editing auth.spec.ts.
+          If I cannot tell it went green because session.ts is fixed, I
+          don&apos;t merge.
         </p>
         <p>
-          A person in review saying do not merge yet is a check. A test the
-          agent wrote so it could approve itself is not.
-        </p>
-        <p>
-          If I cannot freeze a check, I do not have a tool yet. I have a vibe. I
-          do not merge unread.
+          A person saying wait is a check. A test the agent rewrote is not.
+          Parakhin wants more spend on review than generation. That review is
+          a person saying wait, not the agent marking its own homework.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame">
-        <H1>no check, no merge</H1>
-        <p className="sub">
-          If you cannot tell whether the cheap run did the thing, you will pay
-          for the wander every time. A person saying don&apos;t merge yet is a
-          check. A test the agent wrote to approve itself is not.
-        </p>
+        <H1>I don&apos;t merge it</H1>
+        <div className="scene">
+          <p>
+            A cheaper model can make auth.spec.ts green by editing
+            auth.spec.ts.
+          </p>
+          <p>
+            If I cannot tell it went green because session.ts is fixed, I
+            don&apos;t merge.
+          </p>
+          <p>A person saying wait is a check.</p>
+          <p>A test the agent rewrote is not.</p>
+        </div>
       </div>
     )
   }
