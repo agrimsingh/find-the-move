@@ -84,8 +84,86 @@ function HarvestArrow() {
       aria-hidden="true"
       focusable="false"
     >
-      <line x1="2" y1="12" x2="50" y2="12" />
-      <polyline points="42,5 54,12 42,19" />
+      <line className="diagram-arrow" x1="2" y1="12" x2="50" y2="12" />
+      <polyline className="diagram-arrow" points="42,5 54,12 42,19" />
+    </svg>
+  );
+}
+
+function PaidChart() {
+  return (
+    <svg
+      className="diagram paid-chart"
+      viewBox="0 0 640 280"
+      role="img"
+      aria-label="Wall-clock minutes: find 40, re-find 40, a cheap run"
+    >
+      <line x1="72" y1="36" x2="248" y2="36" className="diagram-bracket" />
+      <line x1="72" y1="36" x2="72" y2="48" className="diagram-bracket" />
+      <line x1="248" y1="36" x2="248" y2="48" className="diagram-bracket" />
+      <text x="160" y="26" textAnchor="middle">
+        same information, bought twice
+      </text>
+
+      <rect x="70" y="64" width="36" height="156" className="chart-bar-accent" />
+      <line x1="88" y1="28" x2="88" y2="64" className="chart-whisker" />
+      <line x1="80" y1="28" x2="96" y2="28" className="chart-whisker" />
+      <text x="88" y="240" textAnchor="middle">
+        find
+      </text>
+      <text x="88" y="258" textAnchor="middle">
+        40 min
+      </text>
+
+      <rect x="194" y="64" width="36" height="156" className="chart-bar-danger" />
+      <text x="212" y="240" textAnchor="middle">
+        re-find
+      </text>
+      <text x="212" y="258" textAnchor="middle">
+        40 min
+      </text>
+
+      <rect x="340" y="196" width="36" height="24" className="chart-bar-accent" />
+      <text x="358" y="240" textAnchor="middle">
+        a cheap run
+      </text>
+
+      <text x="16" y="148" className="diagram-kicker">
+        minutes
+      </text>
+      <text x="400" y="72" className="diagram-caption">
+        same task can vary up to 30× — the wander is a gamble,
+      </text>
+      <text x="400" y="88" className="diagram-caption">
+        the skill kills the variance
+      </text>
+    </svg>
+  );
+}
+
+function DepreciationCurve() {
+  return (
+    <svg
+      className="diagram dep-curve"
+      viewBox="0 0 320 220"
+      role="img"
+      aria-label="Value over time rises, plateaus, then crosses zero after the world moved"
+    >
+      <line x1="24" y1="118" x2="300" y2="118" />
+      <path
+        d="M28 168 C 70 40, 120 28, 168 36 S 210 70, 228 118"
+        className="diagram-curve"
+        fill="none"
+      />
+      <path
+        d="M228 118 C 248 160, 268 186, 296 200"
+        className="diagram-curve-danger"
+        fill="none"
+      />
+      <line x1="228" y1="24" x2="228" y2="204" className="diagram-dash" />
+      <text x="234" y="20">
+        the world moved
+      </text>
     </svg>
   );
 }
@@ -182,7 +260,7 @@ export const slides: SlideDef[] = [
       </Notes>
     ),
     content: (
-      <div className="slide-frame">
+      <div className="slide-frame thesis-bleed">
         <H1>The failure is paying to find the same move again.</H1>
       </div>
     )
@@ -192,8 +270,8 @@ export const slides: SlideDef[] = [
     note: (
       <Notes>
         <p>
-          There&apos;s a live position right now that says we&apos;ve entered
-          a compounding-correctness regime — the more tokens you spend on a
+          There&apos;s a live position right now that says we&apos;ve entered a
+          compounding-correctness regime — the more tokens you spend on a
           task, the better the outcome, so spend big. I half agree. Spending
           big to DISCOVER is correct. The wander was worth every token —
           once. The failure mode isn&apos;t the spend; it&apos;s paying the
@@ -276,7 +354,8 @@ export const slides: SlideDef[] = [
         <H1>The skill is how I stop paying</H1>
         <div className="file-block">
           <div className="file-tab">last-seat-race/SKILL.md</div>
-          <pre className="code-fill">{`when two people buy the last seat:
+          <pre className="code-fill">{`---
+when two people buy the last seat:
 1. take the seat and check it in one step — never check, then write
 2. the second buyer gets nothing
 3. stop if two buys can still produce two seats`}</pre>
@@ -326,19 +405,191 @@ second buyer gets nothing`}</pre>
     note: (
       <Notes>
         <p>
-          Live Cursor demo. Cheap model, clean window, reads
-          last-seat-race/SKILL.md first. (Full demo script not in the brief —
-          keep notes this short until the rest arrives.)
+          Cursor, cheap model pinned, fresh chat. (1) Reproduce: run the
+          two-buyer test against the check-then-write version — watch it
+          double-sell. (2) Point the model at last-seat-race/SKILL.md + the
+          failing test, one prompt: &quot;fix the seat bug.&quot; (3) It
+          applies the conditional update in one pass — no exploration, no
+          re-derivation. (4) Run the test, green. Say the cost out loud if
+          you have real numbers. Do not fabricate.
         </p>
       </Notes>
     ),
     content: (
-      <div className="slide-frame demo-slide">
+      <div className="slide-frame demo-slide demo-hold">
         <H1>cheap model · clean window · reads the file first</H1>
       </div>
     )
+  },
+  {
+    id: "demo-fallback",
+    holding: true,
+    note: (
+      <Notes>
+        <p>
+          Gated fallback if the live window fails. Presenter d jumps here.
+          Three stills, then continue the spoken arc.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame compact fallback-stills demo-hold">
+        <pre className="code-fill">{`$ two-buyer test · check-then-write
+FAIL  seats taken == 2`}</pre>
+        <pre className="code-fill">{`cheap model · "fix the seat bug"
+read  last-seat-race/SKILL.md
+apply UPDATE … WHERE taken = false`}</pre>
+        <pre className="code-fill">{`$ two-buyer test
+GREEN  seats taken == 1`}</pre>
+      </div>
+    )
+  },
+  {
+    id: "the-chart",
+    note: (
+      <Notes>
+        <p>
+          Read the bars, then shut up for two seconds. Then: the study result
+          is that higher spend doesn&apos;t buy accuracy past a point, and
+          identical tasks vary up to 30× in cost — so the wander isn&apos;t
+          just expensive, it&apos;s a lottery ticket. The skill doesn&apos;t
+          just cut the mean. It kills the variance. The skill is how I stop
+          gambling.
+        </p>
+        <p>How Do AI Agents Spend Your Money?</p>
+        <p>
+          Q&amp;A only: SAGE +8.9% / −59% —
+          https://o-mega.ai/articles/self-improving-ai-agents-the-2026-guide
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame compact">
+        <H1>What I actually paid</H1>
+        <PaidChart />
+        <p className="evidence">
+          token variance &amp; cost-accuracy: arxiv.org/abs/2604.22750
+        </p>
+      </div>
+    )
+  },
+  {
+    id: "locked-the-test",
+    note: (
+      <Notes>
+        <p>
+          The failure modes are real: delete the one-seat assertion, or make
+          the UI unable to trigger the race — both go green. The lock is
+          itself a token move: the cheap model cannot edit this check, so
+          green is load-bearing. A person saying &quot;wait&quot; is a check.
+          A check the agent rewrote so two seats is &quot;fine&quot; is not.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame compact code-slide">
+        <H1>I locked the test so green means the path held</H1>
+        <p className="scene-line">
+          A cheap model can go green by deleting the check — or hiding the buy
+          button.
+        </p>
+        <pre className="code-fill">{`two buys on the last seat
+seats taken == 1`}</pre>
+        <p className="sub">If I cannot trust green, I pay again.</p>
+      </div>
+    )
+  },
+  {
+    id: "depreciation",
+    note: (
+      <Notes>
+        <p>
+          Everyone this year is talking about skills compounding — libraries
+          that grow combinatorially, knowledge that accumulates instead of
+          resetting. All accumulation-flavored. Here&apos;s the half nobody
+          says on stage: skills depreciate, and a stale skill has NEGATIVE
+          carry. Mine didn&apos;t just fail to help — the skill WAS the bug.
+          It marched a cheap model straight into the race, then charged me
+          frontier tokens to get out. So the discipline is symmetric: harvest
+          the bill, AND retire the asset when the world moves. I deleted it
+          and kept one landmine for the next agent that tries
+          check-then-write. (&quot;landmine&quot; here = a tripwire
+          protecting the path; say that in one clause so the metaphor
+          doesn&apos;t invert.)
+        </p>
+        <p>
+          What Should a Skill Remember? Quality–Cost Trade-offs in Cost-Aware
+          Skill Rewriting
+        </p>
+        <p>Foil only: https://every.to/guides/compound-engineering</p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <div className="split wander-split">
+          <div>
+            <H1>Compounding works on debt too.</H1>
+            <div className="stack-lines">
+              <p>
+                My old skill said: if count &gt; 0, write. The cheap model
+                obeyed. Two seats. Again.
+              </p>
+              <p>
+                A stale skill isn&apos;t neutral. It spends every future run.
+              </p>
+            </div>
+          </div>
+          <DepreciationCurve />
+        </div>
+        <p className="evidence">
+          skill content as a cost trade-off: arxiv.org/abs/2606.09421
+        </p>
+      </div>
+    )
+  },
+  {
+    id: "close",
+    note: (
+      <Notes>
+        <p>
+          Callback and out. Frontier is for finding moves. Skills are how a
+          found move stays found. Tests are how you know it&apos;s still the
+          move. And deletion is how you stop a dead move from spending your
+          money. Find the move once. Never pay for it twice. Thank you.
+        </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <H1>Find the move once. Never pay for it twice.</H1>
+        <Sub>Keep the path. · @agrimsingh</Sub>
+      </div>
+    )
   }
-  // TODO slides 10–13 + demo-fallback — waiting on locked copy
 ];
 
+export const spokenSlides = slides.filter((slide) => !slide.holding);
+export const spokenCount = spokenSlides.length;
 export const slideCount = slides.length;
+
+export function chromeLabel(index: number) {
+  if (slides[index]?.holding) {
+    return `d/${String(spokenCount).padStart(2, "0")}`;
+  }
+  const spokenIndex = slides
+    .slice(0, index + 1)
+    .filter((slide) => !slide.holding).length;
+  return `${String(spokenIndex).padStart(2, "0")}/${String(spokenCount).padStart(2, "0")}`;
+}
+
+export function spokenProgress(index: number) {
+  const spokenIndex = Math.max(
+    1,
+    slides.slice(0, index + 1).filter((slide) => !slide.holding).length
+  );
+  return (spokenIndex / spokenCount) * 100;
+}
+
+export function spokenNumber(index: number) {
+  return slides.slice(0, index + 1).filter((slide) => !slide.holding).length;
+}
