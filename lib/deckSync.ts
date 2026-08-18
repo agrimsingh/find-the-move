@@ -1,7 +1,7 @@
 export const DEFAULT_DECK_ROOM = "talk";
 
-const storageKey = "aiewf-learning-deck-index";
-const roomStorageKey = "aiewf-learning-deck-room";
+const storageKey = "find-the-move-index";
+const roomStorageKey = "find-the-move-room";
 
 export type DeckSyncDetail = {
   index: number;
