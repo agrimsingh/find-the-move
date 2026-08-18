@@ -10,9 +10,12 @@
 
 ## Learned Workspace Facts
 
-- This workspace is a Next.js slide deck + presenter view (`find-the-move`) for Agrim Singh's 15-minute talk.
+- This workspace is a Next.js slide deck + presenter view (`find-the-move`) for Agrim Singh's talk.
 - The example is the last-seat race: two people bought the last seat; both requests saw one left; both wrote. The path is taking the seat and checking the seat in the same step. The second buyer gets nothing.
-- Thesis card H1 is “The failure is paying to find the same move again.” The title slide is only “Find the move.” plus byline.
-- Spoken arc is exactly 9 slides: `title`, `wander`, `new-chat`, `thesis`, `skill-stops-paying`, `copied-the-run`, `locked-the-test`, `deleted-the-skill`, `dont-merge`. `slides.length === 9`.
-- Card titles and bodies in `lib/slides.tsx` are locked copy. `skill-stops-paying` and `locked-the-test` are compact code-slides with structured English, not source files. `copied-the-run` is a short log-versus-skill split. The skill is how I stop paying: frontier found the path once; I do not pay to find it again.
+- Spoken arc is exactly 9 slides: `title`, `wander`, `new-chat`, `thesis`, `chart`, `the-move`, `copied-the-run`, `deleted-the-skill`, `close`. `slides.length === 9`.
+- Scene cards (`wander`, `new-chat`) are one line on screen. The story lives in speaker notes. On-screen body must not equal notes. Do not treat card titles and bodies as locked copy that forces the scene onto the glass.
+- One real code slide (`the-move`): TOCTOU SQL — check-then-write versus take-and-check in one UPDATE. Source on that slide is allowed.
+- One chart (`chart`): three TIME bars. Run 1 and run 2 are 40 min. Run 3 is labeled “a cheap run.” The only real number is 40 minutes. Do not invent prices, spend, or usage totals.
+- Harvest (`copied-the-run`) is the peak slide: stage it bigger than slides 5–8. Skills are an artifact from a bill already paid, not docs to author.
+- Thesis H1 is the sentence “The failure is paying to find the same move again.” No “Thesis” label. Close is an imperative, not a caveat: Frontier finds the move once. / Never pay for it twice. / Keep the path. Names only on the title and close byline. First person in notes. No AI images.
 - PartyKit / multiplayer stays inert. `localStorage` slide index is enough. `npm run dev` / `start` are pinned to hostname `127.0.0.1`.

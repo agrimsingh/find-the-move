@@ -886,6 +886,104 @@ a {
   margin-top: 22px;
 }
 
+
+.time-chart {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  max-width: 1040px;
+}
+
+.time-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.time-label {
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: clamp(18px, 2.1vw, 26px);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.time-track {
+  height: 44px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.time-bar {
+  height: 100%;
+  background: #fafafa;
+  border-radius: 2px;
+}
+
+.time-bar.full {
+  width: 100%;
+}
+
+.time-bar.cheap {
+  width: 18%;
+}
+
+.slide-frame.peak .h1 {
+  max-width: none;
+  font-size: clamp(52px, 6.8vw, 84px);
+}
+
+.slide-frame.peak .scene {
+  margin-top: 28px;
+  max-width: 1100px;
+}
+
+.slide-frame.peak .scene p {
+  color: var(--foreground);
+  font-size: clamp(28px, 3.3vw, 40px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.slide-frame.peak .code-split {
+  margin-top: 36px;
+}
+
+.slide-frame.peak .code-fill {
+  font-size: clamp(18px, 2vw, 26px);
+}
+
+.slide-frame.peak .sub {
+  margin-top: 36px;
+  max-width: none;
+  color: var(--foreground);
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 500;
+}
+
+.close-stack {
+  display: grid;
+  gap: 8px;
+  max-width: 1050px;
+}
+
+.close-stack p {
+  margin: 0;
+  font-size: clamp(40px, 5.6vw, 68px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.06;
+}
+
+.slide-frame.close .sub {
+  margin-top: 40px;
+}
+
 .chrome {
   pointer-events: none;
   position: absolute;
@@ -1201,6 +1299,31 @@ a {
 
   .quote-panel {
     font-size: 22px;
+  }
+
+  .time-chart {
+    margin-top: 32px;
+    gap: 22px;
+  }
+
+  .time-label {
+    font-size: 16px;
+  }
+
+  .time-track {
+    height: 28px;
+  }
+
+  .slide-frame.peak .h1 {
+    font-size: 42px;
+  }
+
+  .slide-frame.peak .scene p {
+    font-size: 22px;
+  }
+
+  .close-stack p {
+    font-size: 32px;
   }
 
   .card-grid,

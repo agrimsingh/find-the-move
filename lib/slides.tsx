@@ -11,14 +11,7 @@ export const slides: SlideDef[] = [
     id: "title",
     note: (
       <Notes>
-        <p>
-          Name and handle. That is the whole card. I am not going to put the
-          claim up here. The room already knows what a skill is.
-        </p>
-        <p>
-          Stay for the token move — the part where I paid twice because I did
-          not keep the path.
-        </p>
+        <p>Name and handle. The claim is later.</p>
       </Notes>
     ),
     content: (
@@ -51,20 +44,7 @@ export const slides: SlideDef[] = [
       <div className="slide-frame">
         <H1>I let it wander</H1>
         <div className="scene">
-          <p>
-            Two people bought the last seat. Both requests saw “one left.”
-            Both wrote. Two confirmations.
-          </p>
-          <p>
-            I let a frontier model wander. It checked the count, then it
-            wrote.
-          </p>
-          <p>That is the bug. The second request still saw one.</p>
-          <p>
-            Forty minutes later I had the path: taking the seat and checking
-            the seat are the same step. The second buyer gets nothing.
-          </p>
-          <p>That bill bought me the path. I had not kept the path.</p>
+          <p>Two people bought the last seat. Both got it.</p>
         </div>
       </div>
     )
@@ -87,14 +67,7 @@ export const slides: SlideDef[] = [
       <div className="slide-frame">
         <H1>I opened a new chat</H1>
         <div className="scene">
-          <p>Same bug. New chat. Frontier again.</p>
-          <p>
-            It checked the count, then it wrote. Two seats sold again.
-          </p>
-          <p>
-            I paid a second time for the same step. The first run was still
-            sitting in the old transcript.
-          </p>
+          <p>Same bug. New chat. Paid again.</p>
         </div>
       </div>
     )
@@ -113,45 +86,69 @@ export const slides: SlideDef[] = [
     )
   },
   {
-    id: "skill-stops-paying",
+    id: "chart",
     note: (
       <Notes>
         <p>
-          I already know what a skill is. I used one so the next chat does not
-          buy that wander again.
+          I paid forty minutes to find the move. I paid forty minutes again
+          because I had not kept the path. The third run is cheap because the
+          skill was there.
         </p>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame">
+        <H1>Same bug, twice.</H1>
+        <div className="time-chart" aria-label="Three runs by time">
+          <div className="time-row">
+            <div className="time-label">
+              run 1 — find the move — 40 min
+            </div>
+            <div className="time-track">
+              <div className="time-bar full" />
+            </div>
+          </div>
+          <div className="time-row">
+            <div className="time-label">
+              run 2 — same bug, no skill — 40 min
+            </div>
+            <div className="time-track">
+              <div className="time-bar full" />
+            </div>
+          </div>
+          <div className="time-row">
+            <div className="time-label">
+              run 3 — skill, cheaper model — a cheap run
+            </div>
+            <div className="time-track">
+              <div className="time-bar cheap" />
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  },
+  {
+    id: "the-move",
+    note: (
+      <Notes>
         <p>
-          A cheaper model, clean window, reads this first. It does not spend
-          frontier tokens rediscovering “check the count, then write.”
-        </p>
-        <p>
-          The file is not the lesson. Frontier found this once. I do not pay
-          to find it again.
+          This is the path frontier found. A leftover “check the count, then
+          write” is the bug.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame compact code-slide">
-        <H1>The skill is how I stop paying</H1>
-        <div className="scene tight">
-          <p>
-            I already know what a skill is. I used one so the next chat does
-            not buy that wander again.
-          </p>
-          <p>
-            A cheaper model, clean window, reads this first. It does not
-            spend frontier tokens rediscovering “check the count, then
-            write.”
-          </p>
-        </div>
-        <pre className="code-fill">{`when two people buy the last seat
-1. take the seat and check it in one step — not check, then write
-2. the second buyer gets nothing
-3. stop if two buys can still make two seats`}</pre>
-        <p className="sub">
-          The file is not the lesson. Frontier found this once. I do not pay
-          to find it again.
-        </p>
+        <H1>The move</H1>
+        <pre className="code-fill">{`-- both see 1
+SELECT remaining FROM seats WHERE id = ?;
+UPDATE seats SET taken = true WHERE id = ?;
+
+-- one step. rowcount 0 → second buyer gets nothing
+UPDATE seats SET taken = true WHERE id = ? AND taken = false;
+`}</pre>
+        <p className="sub">Take and check in the same step.</p>
       </div>
     )
   },
@@ -160,71 +157,32 @@ export const slides: SlideDef[] = [
     note: (
       <Notes>
         <p>
-          The first wander already wrote the skill. I just failed to save it.
-          Left is the log. Right is the file.
+          Harvest the bill. Skills are not docs I author. They are an artifact
+          from a bill I already paid.
         </p>
-        <p>Harvest the bill. Do not re-run it.</p>
       </Notes>
     ),
     content: (
-      <div className="slide-frame compact">
-        <H1>I copied the expensive run into that file</H1>
-        <div className="scene tight">
+      <div className="slide-frame peak">
+        <H1>I copied the expensive run</H1>
+        <div className="scene">
           <p>
-            The first wander already wrote the skill. I just failed to save
-            it.
+            The expensive run already wrote the skill. I just didn’t save it.
           </p>
         </div>
         <div className="code-split">
           <div>
             <Kicker>the log</Kicker>
             <pre className="code-fill">{`checked the count, then wrote — two seats
-take and check in one step — one seat
-second buyer gets nothing
-do not drop the “one seat” check`}</pre>
+take and check in one step — one seat`}</pre>
           </div>
           <div>
             <Kicker>the skill</Kicker>
             <pre className="code-fill">{`take and check in one step
-second buyer gets nothing
-stop if two buys still make two seats`}</pre>
+second buyer gets nothing`}</pre>
           </div>
         </div>
         <p className="sub">Harvest the bill. Do not re-run it.</p>
-      </div>
-    )
-  },
-  {
-    id: "locked-the-test",
-    note: (
-      <Notes>
-        <p>
-          A cheaper model can go green by deleting the “one seat” check, or by
-          hiding the buy button. Then I cannot tell if two buyers still get
-          two seats. I am back on frontier.
-        </p>
-        <p>
-          The lock is a token move. The cheap model cannot edit this check.
-          If I cannot trust green, I pay again.
-        </p>
-      </Notes>
-    ),
-    content: (
-      <div className="slide-frame compact code-slide">
-        <H1>I locked the test so green means the path held</H1>
-        <div className="scene tight">
-          <p>
-            A cheaper model can go green by deleting the “one seat” check, or
-            by hiding the buy button. Then I cannot tell if two buyers still
-            get two seats. I am back on frontier.
-          </p>
-        </div>
-        <pre className="code-fill">{`two buys on the last seat
-seats taken == 1`}</pre>
-        <p className="sub">
-          The lock is a token move. The cheap model cannot edit this check.
-          If I cannot trust green, I pay again.
-        </p>
       </div>
     )
   },
@@ -233,16 +191,8 @@ seats taken == 1`}</pre>
     note: (
       <Notes>
         <p>
-          I had an old skill that said: if count is above zero, write. The
-          cheap model listened. Both buyers passed the check. Two seats
-          again. Then I opened frontier to get out.
-        </p>
-        <p>
-          A leftover recipe in the repo is not free. It spends the next run.
-        </p>
-        <p>
-          I kept one landmine: take and check in one step. I cut “check the
-          count, then write.”
+          A leftover recipe spends the next run. I do not call the good rule a
+          landmine. The leftover recipe is the landmine.
         </p>
       </Notes>
     ),
@@ -250,50 +200,33 @@ seats taken == 1`}</pre>
       <div className="slide-frame">
         <H1>I deleted the skill that made me pay twice</H1>
         <div className="scene">
+          <p>The old skill was the bug.</p>
           <p>
-            I had an old skill that said: if count is above zero, write. The
-            cheap model listened. Both buyers passed the check. Two seats
-            again. Then I opened frontier to get out.
-          </p>
-          <p>
-            A leftover recipe in the repo is not free. It spends the next
-            run.
-          </p>
-          <p>
-            I kept one landmine: take and check in one step. I cut “check
-            the count, then write.”
+            It said check the count, then write. The cheap model listened. Two
+            seats again.
           </p>
         </div>
       </div>
     )
   },
   {
-    id: "dont-merge",
+    id: "close",
     note: (
       <Notes>
         <p>
-          If I cannot tell the cheap run went green because two buys still
-          make one seat, I will pay to find the move again.
-        </p>
-        <p>A person saying wait is a check.</p>
-        <p>
-          A check the agent rewrote so two seats is “fine” is not.
+          A person saying wait is a check. A check the agent rewrote is not.
+          That is spoken. The slide ends strong.
         </p>
       </Notes>
     ),
     content: (
-      <div className="slide-frame">
-        <H1>I don&apos;t merge it</H1>
-        <div className="scene">
-          <p>
-            If I cannot tell the cheap run went green because two buys still
-            make one seat, I will pay to find the move again.
-          </p>
-          <p>A person saying wait is a check.</p>
-          <p>
-            A check the agent rewrote so two seats is “fine” is not.
-          </p>
+      <div className="slide-frame close">
+        <div className="close-stack">
+          <p>Frontier finds the move once.</p>
+          <p>Never pay for it twice.</p>
+          <p>Keep the path.</p>
         </div>
+        <Sub>Agrim Singh · @agrimsingh</Sub>
       </div>
     )
   }

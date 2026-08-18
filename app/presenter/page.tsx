@@ -10,14 +10,14 @@ import { slides } from "../../lib/slides";
 
 const slideTitles: Record<string, string> = {
   title: "Find the move.",
-  "let-it-wander": "I let it wander",
-  "opened-a-new-chat": "I opened a new chat",
+  wander: "I let it wander",
+  "new-chat": "I opened a new chat",
   thesis: "The failure is paying to find the same move again.",
-  "skill-stops-paying": "The skill is how I stop paying",
-  "copied-the-run": "I copied the expensive run into that file",
-  "locked-the-test": "I locked the test so green means the path held",
+  chart: "Same bug, twice.",
+  "the-move": "The move",
+  "copied-the-run": "I copied the expensive run",
   "deleted-the-skill": "I deleted the skill that made me pay twice",
-  "dont-merge": "I don't merge it"
+  close: "Never pay for it twice."
 };
 
 function presenterTitle(slide: SlideDef) {
