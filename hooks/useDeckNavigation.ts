@@ -9,7 +9,7 @@ import {
   resolveDeckRoom,
   writeStoredIndex
 } from "../lib/deckSync";
-import { slideCount } from "../lib/slides";
+import { firstHoldingIndex, slideCount, slides, stepSpoken } from "../lib/slides";
 
 type Options = {
   /** Presenter owns the deck when sync is on. Audience only follows. */
@@ -170,10 +170,17 @@ export function useDeckNavigation(options: Options = {}) {
     function onKey(event: KeyboardEvent) {
       if (event.key === "ArrowRight" || event.key === " " || event.key === "j") {
         event.preventDefault();
-        setIndex((current) => current + 1);
+        setIndex((current) => stepSpoken(current, 1));
       } else if (event.key === "ArrowLeft" || event.key === "k") {
         event.preventDefault();
-        setIndex((current) => current - 1);
+        setIndex((current) => stepSpoken(current, -1));
+      } else if (event.key === "d" || event.key === "D") {
+        event.preventDefault();
+        const holding = firstHoldingIndex();
+        if (holding < 0) return;
+        setIndex((current) =>
+          slides[current]?.holding ? stepSpoken(current, 1) : holding
+        );
       } else if (event.key === "Home") {
         setIndex(0);
       } else if (event.key === "End") {
@@ -190,7 +197,7 @@ export function useDeckNavigation(options: Options = {}) {
   const onClickNav = enableClickNav && (isController || !syncActive)
     ? (event: MouseEvent<HTMLElement>) => {
         const x = event.clientX / window.innerWidth;
-        setIndex((current) => current + (x > 0.33 ? 1 : -1));
+        setIndex((current) => stepSpoken(current, x > 0.33 ? 1 : -1));
       }
     : undefined;
 

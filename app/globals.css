@@ -11,6 +11,7 @@
   --accent: #0070f3;
   --accent-soft: rgba(0, 112, 243, 0.1);
   --signal: #0070f3;
+  --danger-dim: #b44a4a;
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
@@ -68,6 +69,7 @@ a {
 }
 
 .slide-frame {
+  position: relative;
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -1404,4 +1406,455 @@ a {
 
 .cite:hover {
   text-decoration-color: var(--signal);
+}
+
+/* 13-spec: slides 1–9 diagrams, scene lines, SQL, file tab, harvest arrow, demo */
+
+.scene-line {
+  margin: 28px 0 0;
+  max-width: 22em;
+  color: var(--muted);
+  font-size: clamp(22px, 2.3vw, 30px);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.wander-split {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  gap: 36px 48px;
+}
+
+.stack-lines {
+  margin-top: 40px;
+  display: grid;
+  gap: 28px;
+  max-width: 720px;
+}
+
+.stack-lines p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(20px, 2.1vw, 26px);
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
+
+.slide-shell {
+  position: relative;
+}
+
+.evidence {
+  position: absolute;
+  left: 64px;
+  bottom: 28px;
+  margin: 0;
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.01em;
+  opacity: 0.4;
+}
+
+.diagram {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: var(--muted);
+  overflow: visible;
+}
+.spend-axis,
+.dep-curve,
+.paid-chart {
+  overflow: visible;
+}
+
+.diagram line {
+  stroke: currentColor;
+  stroke-width: 1;
+  opacity: 0.4;
+}
+
+.diagram circle {
+  fill: currentColor;
+}
+
+.diagram text {
+  fill: currentColor;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+.diagram-kicker {
+  fill: var(--faint);
+  font-size: 13px;
+}
+
+.diagram-ok {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.wander-race {
+  max-width: 420px;
+  margin-left: auto;
+}
+
+.spend-axis {
+  margin-top: 48px;
+  max-width: 520px;
+}
+
+.kw {
+  color: var(--accent);
+}
+
+.cm {
+  color: var(--foreground);
+  opacity: 0.4;
+}
+
+.file-block {
+  margin-top: 28px;
+  width: 100%;
+}
+
+.file-tab {
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.harvest-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr);
+  gap: 8px 16px;
+  align-items: center;
+  width: 100%;
+}
+
+.harvest-arrow {
+  width: 48px;
+  height: 20px;
+  justify-self: center;
+}
+
+.harvest-arrow line,
+.harvest-arrow polyline {
+  stroke: var(--accent);
+  stroke-width: 1.25;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.slide-frame.demo-slide {
+  justify-content: flex-start;
+}
+
+.slide-frame.demo-slide .h1,
+.slide-frame.demo-hold .h1,
+.slide-frame.demo .h1 {
+  position: absolute;
+  top: 20px;
+  left: 28px;
+  max-width: 42ch;
+  margin: 0;
+  font-size: 13px !important;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--faint);
+}
+
+.audience-page.demo-backdrop,
+.audience-page.bare {
+  background: var(--background);
+}
+
+@media (max-width: 900px) {
+  .wander-split,
+  .harvest-split {
+    grid-template-columns: 1fr;
+  }
+
+  .wander-race {
+    margin: 28px 0 0;
+    max-width: 100%;
+  }
+
+  .harvest-arrow {
+    transform: rotate(90deg);
+  }
+
+  .evidence {
+    left: 24px;
+    bottom: 16px;
+  }
+}
+
+.kw {
+  color: var(--accent);
+}
+
+.cm {
+  opacity: 0.4;
+}
+
+.evidence {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.scene.stack {
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.scene-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 36px 48px;
+  align-items: center;
+  width: 100%;
+  margin-top: 36px;
+}
+
+.scene-split .scene {
+  margin-top: 0;
+}
+
+.diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.diagram-small {
+  max-width: 560px;
+  margin-top: 40px;
+}
+
+.scene-split .diagram-small {
+  margin-top: 0;
+}
+
+.diagram-chart {
+  max-width: 920px;
+  margin-top: 28px;
+}
+
+.diagram-label {
+  fill: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+.diagram-label-end {
+  text-anchor: end;
+}
+
+.diagram-caption {
+  fill: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.01em;
+}
+
+.diagram-line {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.22);
+  stroke-width: 1;
+}
+
+.diagram-node {
+  fill: var(--muted);
+}
+
+.diagram-check {
+  fill: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 20px;
+}
+
+.diagram-dot-accent {
+  fill: var(--accent);
+}
+
+.diagram-dot-danger {
+  fill: var(--danger-dim);
+}
+
+.diagram-whisker {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1;
+}
+
+.chart-bar-accent {
+  fill: var(--accent);
+}
+
+.chart-bar-danger {
+  fill: var(--danger-dim);
+}
+
+.diagram-value {
+  fill: none;
+  stroke: var(--foreground);
+  stroke-width: 1.5;
+}
+
+.diagram-value-neg {
+  fill: none;
+  stroke: var(--danger-dim);
+  stroke-width: 1.5;
+}
+
+.diagram-mark {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+
+.file-tab {
+  display: inline-flex;
+  align-items: center;
+  margin: 28px 0 0;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  padding: 8px 14px;
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.slide-frame.compact > .file-tab + .code-fill {
+  margin-top: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+
+.harvest {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr);
+  gap: 12px 20px;
+  align-items: center;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.harvest-arrow {
+  width: 48px;
+  height: 24px;
+}
+
+.harvest-arrow-line,
+.harvest-arrow-head {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.25;
+}
+
+.harvest-arrow-head {
+  fill: none;
+}
+
+.slide-frame.peak .h1 {
+  max-width: none;
+  font-size: clamp(44px, 5.6vw, 68px);
+}
+
+.slide-frame.peak .code-fill {
+  font-size: clamp(16px, 1.7vw, 22px);
+}
+
+.slide-frame.bleed .h1 {
+  max-width: 1100px;
+  font-size: clamp(52px, 6.8vw, 84px);
+}
+
+.slide-frame.demo {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.slide-frame.demo .h1 {
+  position: absolute;
+  top: 20px;
+  left: 28px;
+  max-width: 42ch;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--faint);
+}
+
+.fallback-stills {
+  display: grid;
+  gap: 28px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.fallback-stills .code-fill {
+  font-size: clamp(15px, 1.5vw, 20px);
+}
+
+@media (max-width: 900px) {
+  .scene-split,
+  .harvest {
+    grid-template-columns: 1fr;
+  }
+
+  .harvest-arrow {
+    justify-self: start;
+    transform: rotate(90deg);
+  }
+
+  .diagram-small,
+  .diagram-chart {
+    max-width: 100%;
+  }
+}
+
+.slide-frame.demo-hold {
+  justify-content: flex-start;
+}
+
+.slide-frame.demo-hold.fallback-stills {
+  justify-content: center;
+}
+
+.chart-caption {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: clamp(13px, 1.3vw, 16px);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
 }

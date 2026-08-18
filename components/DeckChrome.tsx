@@ -1,7 +1,7 @@
-import { slideCount } from "../lib/slides";
+import { chromeLabel, spokenCount, spokenProgress } from "../lib/slides";
 
 export function DeckChrome({ index }: { index: number }) {
-  const label = `${String(index + 1).padStart(2, "0")}/${String(slideCount).padStart(2, "0")}`;
+  const label = chromeLabel(index);
 
   return (
     <div className="chrome">
@@ -11,14 +11,14 @@ export function DeckChrome({ index }: { index: number }) {
           {label}
           <span hidden>
             {1}
-            {slideCount}
+            {spokenCount}
           </span>
         </span>
       </div>
       <div className="progress-track">
         <div
           className="progress-bar"
-          style={{ width: `${((index + 1) / slideCount) * 100}%` }}
+          style={{ width: `${spokenProgress(index)}%` }}
         />
       </div>
     </div>
