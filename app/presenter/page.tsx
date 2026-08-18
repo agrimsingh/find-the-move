@@ -17,12 +17,7 @@ const slideTitles: Record<string, string> = {
   "the-move": "The move, in two lines",
   "skill-file": "The skill is how I stop paying",
   "copied-the-run": "The expensive run already wrote this file",
-  demo: "cheap model · clean window · reads the file first",
-  "demo-fallback": "demo fallback",
-  "the-chart": "What I actually paid",
-  "locked-the-test": "I locked the test so green means the path held",
-  depreciation: "Compounding works on debt too.",
-  close: "Find the move once. Never pay for it twice."
+  demo: "cheap model · clean window · reads the file first"
 };
 
 function presenterTitle(slide: SlideDef) {
