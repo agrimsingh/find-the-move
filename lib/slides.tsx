@@ -108,10 +108,7 @@ export const slides: SlideDef[] = [
     ),
     content: (
       <div className="slide-frame">
-        <H1>Thesis</H1>
-        <div className="scene">
-          <p>The failure is paying to find the same move again.</p>
-        </div>
+        <H1>The failure is paying to find the same move again.</H1>
       </div>
     )
   },
