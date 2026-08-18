@@ -10,9 +10,9 @@ import { slides } from "../../lib/slides";
 
 const slideTitles: Record<string, string> = {
   title: "Find the move.",
-  "paid-tuesday-twice": "I paid Tuesday twice",
-  "week-that-was-work": "The week that was actually work",
-  "six-accounts": "Six accounts, every five hours",
+  "paid-tuesday-twice": "Last Tuesday",
+  "week-that-was-work": "The first week",
+  "six-accounts": "Six accounts",
   thesis:
     "The failure is paying frontier prices to find the same move again next Tuesday.",
   "write-the-path": "Write the path down",

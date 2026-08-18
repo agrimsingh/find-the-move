@@ -62,7 +62,7 @@ export const slides: SlideDef[] = [
     ),
     content: (
       <div className="slide-frame">
-        <H1>I paid Tuesday twice</H1>
+        <H1>Last Tuesday</H1>
         <Sub>
           Last Tuesday I already knew how to do the task. I opened a new agent
           anyway. Frontier prices, same path, same hour. The room laughs
@@ -88,7 +88,7 @@ export const slides: SlideDef[] = [
     ),
     content: (
       <div className="slide-frame">
-        <H1>The week that was actually work</H1>
+        <H1>The first week</H1>
         <Sub>
           The first wander is tuition. You are paying to learn how this task
           is done in this repo. Keep the receipt. If you throw it away, you
@@ -114,7 +114,7 @@ export const slides: SlideDef[] = [
     ),
     content: (
       <div className="slide-frame">
-        <H1>Six accounts, every five hours</H1>
+        <H1>Six accounts</H1>
         <Sub>
           Dex, Hyper Engineering chat: six Claude Code accounts, maxed every
           five-hour window so the tokens never sit idle. He calls that token
@@ -315,10 +315,10 @@ export const slides: SlideDef[] = [
         <div className="code-split">
           <div>
             <Kicker>the wander</Kicker>
-            <pre className="code-fill">{`14:02  three Opus agents, one ticket
-14:11  one rewrites the test until green
-14:40  "works"
-repo   nothing frozen except the PR`}</pre>
+            <pre className="code-fill">{`three Opus agents, one ticket
+one rewrites the test until green
+"works"
+nothing frozen except the PR`}</pre>
           </div>
           <div>
             <Kicker>frozen</Kicker>
