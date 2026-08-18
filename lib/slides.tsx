@@ -84,11 +84,12 @@ function HarvestArrow() {
       aria-hidden="true"
       focusable="false"
     >
-      <line className="diagram-arrow" x1="2" y1="12" x2="50" y2="12" />
-      <polyline className="diagram-arrow" points="42,5 54,12 42,19" />
+      <line x1="2" y1="12" x2="50" y2="12" />
+      <polyline points="42,5 54,12 42,19" />
     </svg>
   );
 }
+
 
 function PaidChart() {
   return (
@@ -96,7 +97,7 @@ function PaidChart() {
       className="diagram paid-chart"
       viewBox="0 0 640 280"
       role="img"
-      aria-label="Wall-clock minutes: find 40, re-find 40, a cheap run"
+      aria-label="Wall-clock minutes: wander 40, run 2 40, a cheap run"
     >
       <line x1="72" y1="36" x2="248" y2="36" className="diagram-bracket" />
       <line x1="72" y1="36" x2="72" y2="48" className="diagram-bracket" />
@@ -104,30 +105,26 @@ function PaidChart() {
       <text x="160" y="26" textAnchor="middle">
         same information, bought twice
       </text>
-
       <rect x="70" y="64" width="36" height="156" className="chart-bar-accent" />
       <line x1="88" y1="28" x2="88" y2="64" className="chart-whisker" />
       <line x1="80" y1="28" x2="96" y2="28" className="chart-whisker" />
       <text x="88" y="240" textAnchor="middle">
-        find
+        wander
       </text>
       <text x="88" y="258" textAnchor="middle">
         40 min
       </text>
-
       <rect x="194" y="64" width="36" height="156" className="chart-bar-danger" />
       <text x="212" y="240" textAnchor="middle">
-        re-find
+        run 2
       </text>
       <text x="212" y="258" textAnchor="middle">
         40 min
       </text>
-
       <rect x="340" y="196" width="36" height="24" className="chart-bar-accent" />
       <text x="358" y="240" textAnchor="middle">
         a cheap run
       </text>
-
       <text x="16" y="148" className="diagram-kicker">
         minutes
       </text>
@@ -270,8 +267,8 @@ export const slides: SlideDef[] = [
     note: (
       <Notes>
         <p>
-          There&apos;s a live position right now that says we&apos;ve entered a
-          compounding-correctness regime — the more tokens you spend on a
+          There&apos;s a live position right now that says we&apos;ve entered
+          a compounding-correctness regime — the more tokens you spend on a
           task, the better the outcome, so spend big. I half agree. Spending
           big to DISCOVER is correct. The wander was worth every token —
           once. The failure mode isn&apos;t the spend; it&apos;s paying the
@@ -381,7 +378,7 @@ when two people buy the last seat:
       </Notes>
     ),
     content: (
-      <div className="slide-frame compact">
+      <div className="slide-frame compact peak">
         <H1>The expensive run already wrote this file</H1>
         <div className="code-split harvest-split">
           <div>
@@ -405,18 +402,17 @@ second buyer gets nothing`}</pre>
     note: (
       <Notes>
         <p>
-          Cursor, cheap model pinned, fresh chat. (1) Reproduce: run the
-          two-buyer test against the check-then-write version — watch it
-          double-sell. (2) Point the model at last-seat-race/SKILL.md + the
-          failing test, one prompt: &quot;fix the seat bug.&quot; (3) It
-          applies the conditional update in one pass — no exploration, no
-          re-derivation. (4) Run the test, green. Say the cost out loud if
-          you have real numbers. Do not fabricate.
+          Cursor, cheap model pinned, fresh chat. (1) Reproduce double-sell.
+          (2) Point at last-seat-race/SKILL.md + failing test, one prompt:
+          “fix the seat bug.” (3) Conditional update in one pass. (4) Test
+          green. Say real costs out loud if you have them: “That run cost me
+          [X¢]. The wander cost [Y]. Same fix.” Do not fabricate X/Y on the
+          slide.
         </p>
       </Notes>
     ),
     content: (
-      <div className="slide-frame demo-slide demo-hold">
+      <div className="slide-frame demo-slide">
         <H1>cheap model · clean window · reads the file first</H1>
       </div>
     )
@@ -427,20 +423,22 @@ second buyer gets nothing`}</pre>
     note: (
       <Notes>
         <p>
-          Gated fallback if the live window fails. Presenter d jumps here.
-          Three stills, then continue the spoken arc.
+          Holding stills if the live demo dies. Not a spoken beat. Presenter
+          d jumps here; default next/prev skips it.
         </p>
       </Notes>
     ),
     content: (
-      <div className="slide-frame compact fallback-stills demo-hold">
-        <pre className="code-fill">{`$ two-buyer test · check-then-write
-FAIL  seats taken == 2`}</pre>
-        <pre className="code-fill">{`cheap model · "fix the seat bug"
-read  last-seat-race/SKILL.md
-apply UPDATE … WHERE taken = false`}</pre>
-        <pre className="code-fill">{`$ two-buyer test
-GREEN  seats taken == 1`}</pre>
+      <div className="slide-frame compact fallback-stills">
+        <pre className="code-fill">{`two-buyer test against check-then-write
+FAIL
+seats taken == 2`}</pre>
+        <pre className="code-fill">{`cheap model · one prompt “fix the seat bug”
+reading last-seat-race/SKILL.md
+applies UPDATE … WHERE taken = false`}</pre>
+        <pre className="code-fill">{`two-buyer test
+PASS
+seats taken == 1`}</pre>
       </div>
     )
   },
@@ -456,10 +454,15 @@ GREEN  seats taken == 1`}</pre>
           just cut the mean. It kills the variance. The skill is how I stop
           gambling.
         </p>
-        <p>How Do AI Agents Spend Your Money?</p>
         <p>
-          Q&amp;A only: SAGE +8.9% / −59% —
-          https://o-mega.ai/articles/self-improving-ai-agents-the-2026-guide
+          “How Do AI Agents Spend Your Money?” — same-task runs differ up to
+          30× in tokens; higher usage ≠ higher accuracy; accuracy peaks at
+          intermediate cost; input tokens dominate.
+          arxiv.org/abs/2604.22750
+        </p>
+        <p>
+          Q&amp;A only: SAGE-style +8.9% task completion / −59% output tokens
+          — https://o-mega.ai/articles/self-improving-ai-agents-the-2026-guide
         </p>
       </Notes>
     ),
@@ -481,8 +484,8 @@ GREEN  seats taken == 1`}</pre>
           The failure modes are real: delete the one-seat assertion, or make
           the UI unable to trigger the race — both go green. The lock is
           itself a token move: the cheap model cannot edit this check, so
-          green is load-bearing. A person saying &quot;wait&quot; is a check.
-          A check the agent rewrote so two seats is &quot;fine&quot; is not.
+          green is load-bearing. A person saying “wait” is a check. A check
+          the agent rewrote so two seats is “fine” is not.
         </p>
       </Notes>
     ),
@@ -513,15 +516,17 @@ seats taken == 1`}</pre>
           frontier tokens to get out. So the discipline is symmetric: harvest
           the bill, AND retire the asset when the world moves. I deleted it
           and kept one landmine for the next agent that tries
-          check-then-write. (&quot;landmine&quot; here = a tripwire
-          protecting the path; say that in one clause so the metaphor
-          doesn&apos;t invert.)
+          check-then-write. (“landmine” = a tripwire protecting the path; say
+          that in one clause so the metaphor doesn&apos;t invert.)
         </p>
         <p>
-          What Should a Skill Remember? Quality–Cost Trade-offs in Cost-Aware
-          Skill Rewriting
+          “What Should a Skill Remember? Quality–Cost Trade-offs in
+          Cost-Aware Skill Rewriting” — arxiv.org/abs/2606.09421
         </p>
-        <p>Foil only: https://every.to/guides/compound-engineering</p>
+        <p>
+          Foil only, do not name on slide:
+          https://every.to/guides/compound-engineering
+        </p>
       </Notes>
     ),
     content: (
@@ -573,12 +578,10 @@ export const spokenCount = spokenSlides.length;
 export const slideCount = slides.length;
 
 export function chromeLabel(index: number) {
-  if (slides[index]?.holding) {
-    return `d/${String(spokenCount).padStart(2, "0")}`;
-  }
-  const spokenIndex = slides
-    .slice(0, index + 1)
-    .filter((slide) => !slide.holding).length;
+  const spokenIndex = Math.max(
+    1,
+    slides.slice(0, index + 1).filter((slide) => !slide.holding).length
+  );
   return `${String(spokenIndex).padStart(2, "0")}/${String(spokenCount).padStart(2, "0")}`;
 }
 

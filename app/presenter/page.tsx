@@ -6,7 +6,7 @@ import type { SlideDef } from "../../components/Slide";
 import { SlidePreview } from "../../components/SlidePreview";
 import { formatElapsed, useElapsedTimer } from "../../hooks/useElapsedTimer";
 import { useDeckNavigation } from "../../hooks/useDeckNavigation";
-import { slides, stepSpoken } from "../../lib/slides";
+import { slides, spokenCount, spokenNumber, stepSpoken } from "../../lib/slides";
 
 const slideTitles: Record<string, string> = {
   title: "Find the move.",
@@ -34,7 +34,7 @@ function previewSummary(slide: SlideDef, index: number, label: string) {
     <div className="mobile-preview-card">
       <div className="mobile-preview-topline">
         <span>{label}</span>
-        <span>{index + 1} / {slides.length}</span>
+        <span>{spokenNumber(index)} / {spokenCount}</span>
       </div>
       <div className="mobile-preview-section">
         {slide.kicker ?? slide.id.replace(/-/g, " ")}
@@ -70,7 +70,7 @@ export default function PresenterPage() {
         <div>
           <div className="presenter-label">Presenter view</div>
           <div className="presenter-meta">
-            <span>{index + 1} / {slideCount}</span>
+            <span>{spokenNumber(index)} / {spokenCount}</span>
             <span
               className={`sync-pill ${
                 syncEnabled
