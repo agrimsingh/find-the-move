@@ -20,8 +20,10 @@ const slideTitles: Record<string, string> = {
   distill: "Write a skill the next agent can use.",
   lock: "Run one check for the result and one for the method.",
   replay: "Give a fresh chat only what it should need.",
-  route: "On harder tasks, the fastest model changed with the task.",
-  "price-parity": "Normalize the token footprint before comparing price.",
+  "pilot-method": "For each reported run, we measured cost, time, and intelligence.",
+  "ledger-results": "Composer Fast was cheapest on the ledger task in this pilot.",
+  "email-results": "Composer Fast was cheapest on the email task in this pilot.",
+  "skill-replay-results": "Luna cost 1.6 cents, but it needed two attempts to pass.",
   "frontier-rule": "Use a frontier model when you still need to discover the move.",
   "next-hard-fix": "Before you close the next hard fix."
 };

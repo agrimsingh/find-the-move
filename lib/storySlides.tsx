@@ -49,7 +49,7 @@ export const storySlides = [
         />
         <div className="visual-copy">
           <H1>Two people bought the last seat.</H1>
-          <Sub>One seat. Two confirmations.</Sub>
+          <Sub>Only one seat remained, but we sent two confirmations.</Sub>
         </div>
       </div>
     )
@@ -101,7 +101,7 @@ export const storySlides = [
         />
         <div className="visual-copy">
           <H1>Then I paid to find it again.</H1>
-          <Sub>Same path. Same toll. New chat.</Sub>
+          <Sub>A new chat followed the same path and charged me again.</Sub>
         </div>
       </div>
     )
