@@ -184,9 +184,9 @@ export const benchmarkSlides = [
         <p>
           I gave three cheaper routes the skill for the leased-worker
           pattern, then changed the domain to warehouse shipping labels. Luna&apos;s
-          first answer omitted the fence column it later said the operation
-          update required. Its second answer fixed that and passed. Counting
-          both attempts, Luna took 39.3 seconds and cost 1.6 cents.
+          first answer did not store the version number needed to stop an older
+          worker from saving over a newer one. Its second answer fixed that and
+          passed. Counting both attempts, Luna took 39.3 seconds and cost 1.6 cents.
         </p>
         <p>
           Composer 2.5 passed in one clean CLI run for 1.63 cents and took
@@ -195,10 +195,11 @@ export const benchmarkSlides = [
           depends on which constraint matters now.
         </p>
         <p>
-          The transferred skill said to reject stale database writes with a
-          monotonic fence and reuse one stable provider operation ID across
-          retries. The new task was to buy one shipping label, store its
-          tracking number, and recover from a crash without buying it twice.
+          The transferred skill said that only the newest worker may save the
+          result. Every retry must reuse the same purchase ID so the label
+          company returns the first result instead of charging twice. The new
+          task was to buy one shipping label, store its tracking number, and
+          recover from a crash without buying it twice.
         </p>
         <p>[Source] https://cursor.com/docs/models-and-pricing</p>
       </Notes>
@@ -210,7 +211,7 @@ export const benchmarkSlides = [
         <div className="skill-transfer" aria-label="The transferred skill and the new shipping-label task">
           <div>
             <strong>The skill</strong>
-            <span>Reject stale writes with a monotonic fence, and reuse one provider operation ID across retries.</span>
+            <span>Only the newest worker can save the result. Every retry uses the same purchase ID so the label company does not charge twice.</span>
           </div>
           <div>
             <strong>The new task</strong>
