@@ -64,13 +64,13 @@ export const proofSlides = [
     note: (
       <Notes>
         <p>
-          Now test whether the move survived the transcript. Start a clean chat
-          with a cheaper model. Give it the task, the move card, and commands
+          Now test whether the skill survives without the transcript. Start a
+          clean chat with a cheaper model. Give it the task, the skill, and commands
           that run the protected checks outside its workspace.
         </p>
         <p>
-          If it passes, the move transferred. If it fails, either the card is
-          incomplete or the new case contains uncertainty worth escalating.
+          If it passes, the skill worked on this clean case. If it fails, either
+          the skill is incomplete or the new case contains uncertainty worth escalating.
         </p>
       </Notes>
     ),
@@ -81,7 +81,7 @@ export const proofSlides = [
         <div className="def-list">
           <div className="def-item accent">
             <strong>01</strong>
-            <span>Give it the task, the move card, and commands that run the checks.</span>
+            <span>Give it the task, the skill, and commands that run the checks.</span>
           </div>
           <div className="def-item">
             <strong>02</strong>
@@ -89,7 +89,7 @@ export const proofSlides = [
           </div>
           <div className="def-item">
             <strong>03</strong>
-            <span>If both tests pass, the move survived.</span>
+            <span>If both tests pass, the skill worked on this clean case.</span>
           </div>
         </div>
       </div>

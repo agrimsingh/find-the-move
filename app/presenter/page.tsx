@@ -13,19 +13,19 @@ const slideTitles: Record<string, string> = {
   "last-seat": "Two people bought the last seat.",
   "one-move": "The fix was one move.",
   "paid-again": "Then I paid to find it again.",
-  "finished-run": "A frontier run should leave behind a reusable capability.",
-  "skill-filter": "Ask whether the hard task earned a skill.",
+  "finished-run": "A frontier run should leave behind a capability you can reuse.",
+  "skill-filter": "When a hard task ends, ask whether it earned a skill.",
   ritual: "Take five minutes before you close the run.",
   find: "Before you close the chat, ask what changed.",
   distill: "Write a skill the next agent can use.",
   lock: "Run one check for the result and one for the method.",
   replay: "Give a fresh chat only what it should need.",
   "pilot-method": "For each reported run, we measured cost, time, and intelligence.",
-  "ledger-results": "Composer Fast was cheapest on the ledger task in this pilot.",
-  "email-results": "Composer Fast was cheapest on the email task in this pilot.",
-  "skill-replay-results": "Luna cost 1.6 cents, but it needed two attempts to pass.",
+  "hard-task-results": "Composer Fast produced the cheapest passing answer on both hard tasks.",
+  "cost-contrast": "The passing discovery runs cost about 10× more than the lowest skill-replay cost.",
+  "skill-replay-results": "Two cheap routes both rounded to 1.6¢, but they got there differently.",
   "frontier-rule": "Use a frontier model when you still need to discover the move.",
-  "next-hard-fix": "Before you close the next hard fix."
+  "next-hard-fix": "Before you close the next hard fix:"
 };
 
 function presenterTitle(slide: SlideDef) {

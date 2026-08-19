@@ -12,9 +12,9 @@ export const routingSlides = [
     note: (
       <Notes>
         <p>
-          This is Swyx's agent-lab idea made local: you are the routing and
-          evaluation layer. Use frontier reasoning to discover an unknown move,
-          then let the skill and held-out checks earn a cheaper model the repeat.
+          You are the routing and evaluation layer. Use frontier reasoning to
+          discover an unknown move, then let the skill and held-out checks earn
+          a cheaper model the repeat.
         </p>
         <p>
           Repeated, well-understood work may not need a general model at all.
@@ -31,7 +31,7 @@ export const routingSlides = [
     ),
     content: (
       <div className="slide-frame compact">
-        <Kicker>Route rule</Kicker>
+        <Kicker>05 · Route · rule</Kicker>
         <H1>Use a frontier model when you still need to discover the move.</H1>
         <div className="def-list">
           <div className="def-item accent">
@@ -63,7 +63,7 @@ export const routingSlides = [
           answer these five questions before closing the chat.
         </p>
         <p>
-          The outcome is practical: a move card, protected proof, one clean
+          The outcome is practical: a skill, protected proof, one clean
           replay, and a model-routing decision for the next occurrence.
         </p>
       </Notes>

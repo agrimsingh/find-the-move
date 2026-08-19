@@ -49,7 +49,7 @@ export const storySlides = [
         />
         <div className="visual-copy">
           <H1>Two people bought the last seat.</H1>
-          <Sub>Only one seat remained, but we sent two confirmations.</Sub>
+          <Sub>Only one seat remained, but we sent two confirmations. The frontier run took 40 minutes.</Sub>
         </div>
       </div>
     )
