@@ -20,7 +20,7 @@ const slideTitles: Record<string, string> = {
   distill: "Write a skill the next agent can use.",
   lock: "Run one check for the result and one for the method.",
   replay: "Give a fresh chat only what it should need.",
-  "pilot-method": "For each reported run, we measured cost, time, and intelligence.",
+  "pilot-method": "We ran two discovery tasks, then replayed one skill on a third task.",
   "hard-task-results": "Composer Fast produced the cheapest passing answer on both hard tasks.",
   "cost-contrast": "The passing discovery runs cost about 10× more than the lowest skill-replay cost.",
   "skill-replay-results": "Two cheap routes both rounded to 1.6¢, but they got there differently.",

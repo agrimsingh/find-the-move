@@ -12,17 +12,23 @@ export const benchmarkSlides = [
     note: (
       <Notes>
         <p>
-          I reran the pilot through Cursor&apos;s headless CLI so every attempt
-          returned the same receipt: duration plus input, cache-write,
-          cache-read, and output tokens. The two hard tasks ran once on
-          Composer 2.5 Fast, GPT-5.6 Sol Medium, and Cursor Grok 4.6 High Fast.
-          The skill then ran on Luna Medium, Composer 2.5, and Composer 2.5
-          Fast. Luna needed a second attempt before it passed.
+          The first discovery prompt asked each model to design a multi-tenant
+          credit ledger for payment webhooks that can arrive twice, arrive out
+          of order, or run concurrently. The second asked for a 60-second lease
+          protocol for a worker that sends email and may crash before or after
+          the provider accepts the message.
         </p>
         <p>
-          Cost is the sum of each token category multiplied by that model&apos;s
-          published per-million rate. Intelligence is whether the answer
-          passed the prompt&apos;s protected checks by inspection.
+          The replay prompt changed the domain to warehouse shipping labels. I
+          gave cheaper models the extracted lease-and-idempotency skill, then
+          checked whether they could apply it without seeing the earlier email
+          answer.
+        </p>
+        <p>
+          I reran all three prompts through Cursor&apos;s headless CLI. Each receipt
+          included duration plus input, cache-write, cache-read, and output
+          tokens. Cost is the sum of those token categories multiplied by the
+          model&apos;s published per-million rates.
         </p>
         <p>
           The ledger checks covered duplicate delivery, out-of-order refunds,
@@ -42,27 +48,27 @@ export const benchmarkSlides = [
     ),
     content: (
       <div className="slide-frame compact">
-        <Kicker>05 · Route · pilot method</Kicker>
-        <H1>For each reported run, we measured cost, time, and intelligence.</H1>
+        <Kicker>05 · Route · pilot design</Kicker>
+        <H1>We ran two discovery tasks, then replayed one skill on a third task.</H1>
         <div className="def-list benchmark-list">
           <div className="def-item accent">
-            <strong>Tasks</strong>
-            <span>We tried two unknown concurrency problems, then replayed one skill.</span>
+            <strong>Discovery A · credits</strong>
+            <span>Design a ledger where duplicate, out-of-order, and concurrent payment webhooks cannot corrupt a tenant&apos;s credit balance.</span>
           </div>
           <div className="def-item">
-            <strong>Time</strong>
-            <span>We used Cursor&apos;s duration receipt, from prompt submission to final answer.</span>
+            <strong>Discovery B · email</strong>
+            <span>Design a leased worker that avoids duplicate email after lease expiry or a crash before or after provider acceptance.</span>
           </div>
           <div className="def-item">
-            <strong>Cost</strong>
-            <span>We multiplied each token category by the model&apos;s published list rate.</span>
+            <strong>Replay · shipping</strong>
+            <span>Use the skill to lease a fulfillment job, buy a shipping label, record its tracking number, and recover from a crash without buying it twice.</span>
           </div>
           <div className="def-item">
-            <strong>Intelligence</strong>
-            <span>Ledger checks covered duplicates, ordering, tenant isolation, retries, and races. Email checks covered stale workers, two crash windows, clock skew, and the impossible case.</span>
+            <strong>Five-check rubrics</strong>
+            <span>Credits tested duplicates, ordering, tenant isolation, retries, and races. Email tested stale workers, two crash windows, clock skew, and the impossible guarantee.</span>
           </div>
         </div>
-        <Sub>We inspected six hard-task runs and four replay attempts, but we did not execute them.</Sub>
+        <Sub>We recorded receipt time, token-priced cost, and checks passed for six discovery runs and four replay attempts. We inspected the answers, but did not execute them.</Sub>
       </div>
     )
   },
@@ -90,7 +96,7 @@ export const benchmarkSlides = [
         <H1>Composer Fast produced the cheapest passing answer on both hard tasks.</H1>
         <div className="task-comparison">
           <section className="task-column">
-            <h2>Credit ledger</h2>
+            <h2>Credits · payment webhooks</h2>
             <div className="result-row accent">
               <div><strong>Composer 2.5 Fast</strong><span>Fast route</span></div>
               <div><strong>30.9s · 13.5¢</strong><span>Passed 5/5 checks</span></div>
@@ -105,7 +111,7 @@ export const benchmarkSlides = [
             </div>
           </section>
           <section className="task-column">
-            <h2>Leased email</h2>
+            <h2>Email · leased worker</h2>
             <div className="result-row accent">
               <div><strong>Composer 2.5 Fast</strong><span>Fast route</span></div>
               <div><strong>24.8s · 9.2¢</strong><span>Passed 5/5 checks</span></div>
