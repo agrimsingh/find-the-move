@@ -12,9 +12,10 @@ export const routingSlides = [
     note: (
       <Notes>
         <p>
-          You are the routing and evaluation layer. Use frontier reasoning to
-          discover an unknown move, then let the skill and held-out checks earn
-          a cheaper model the repeat.
+          You are the routing and evaluation layer. Start with the cheapest
+          plausible route. Escalate when the move is still unknown or the
+          answer fails a protected check, then let the skill and held-out
+          checks earn a cheaper model the repeat.
         </p>
         <p>
           Repeated, well-understood work may not need a general model at all.
@@ -32,11 +33,11 @@ export const routingSlides = [
     content: (
       <div className="slide-frame compact">
         <Kicker>05 · Route · rule</Kicker>
-        <H1>Use a frontier model when you still need to discover the move.</H1>
+        <H1>Start cheap, then escalate when the move is unknown or a protected check fails.</H1>
         <div className="def-list">
           <div className="def-item accent">
             <strong>The move is unknown</strong>
-            <span>Use a frontier model to discover it and explain why it works.</span>
+            <span>Try a capable cheap route first. Escalate if it cannot produce or explain a passing move.</span>
           </div>
           <div className="def-item">
             <strong>The skill and checks are ready</strong>
@@ -90,7 +91,7 @@ export const routingSlides = [
           </div>
           <div className="def-item accent">
             <strong>05</strong>
-            <span>Which cheaper model reaches the same bar, after how many attempts?</span>
+            <span>Which route clears the same bar after counting model cost, elapsed time, retries, and review?</span>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ export const storySlides = [
     content: (
       <div className="slide-frame">
         <H1>Find the move.</H1>
-        <Sub>Agrim Singh · @agrimsingh</Sub>
+        <Sub>Agrim Singh · @agrimsingh<br />SpaceXAI</Sub>
       </div>
     )
   },
@@ -111,9 +111,9 @@ export const storySlides = [
     note: (
       <Notes>
         <p>
-          A fixed bug is one successful run. The expensive model should leave
-          behind a capability that makes every similar run cheaper and more
-          reliable.
+          Tokenmaxxing buys exploration. Valuemaxxing starts when that
+          exploration leaves behind a verified capability that makes the next
+          successful task cheaper.
         </p>
         <p>
           So I changed my definition of done: the move has to survive the chat
@@ -123,7 +123,7 @@ export const storySlides = [
     ),
     content: (
       <div className="slide-frame">
-        <H1>A frontier run should leave behind a capability you can reuse.</H1>
+        <H1>Tokenmaxxing buys exploration. The value is a verified move you can reuse.</H1>
       </div>
     )
   }

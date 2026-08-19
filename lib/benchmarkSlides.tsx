@@ -49,26 +49,26 @@ export const benchmarkSlides = [
     content: (
       <div className="slide-frame compact">
         <Kicker>05 · Route · pilot design</Kicker>
-        <H1>We ran two discovery tasks, then replayed one skill on a third task.</H1>
+        <H1>Two tasks tested discovery, and a third tested whether the skill transferred.</H1>
         <div className="def-list benchmark-list">
           <div className="def-item accent">
             <strong>Discovery A · credits</strong>
-            <span>Design a ledger where duplicate, out-of-order, and concurrent payment webhooks cannot corrupt a tenant&apos;s credit balance.</span>
+            <span>Handle duplicate, out-of-order, and concurrent payment webhooks without corrupting a tenant&apos;s balance.</span>
           </div>
           <div className="def-item">
             <strong>Discovery B · email</strong>
-            <span>Design a leased worker that avoids duplicate email after lease expiry or a crash before or after provider acceptance.</span>
+            <span>Send one email even when leases expire or workers crash before or after provider acceptance.</span>
           </div>
           <div className="def-item">
             <strong>Replay · shipping</strong>
-            <span>Use the skill to lease a fulfillment job, buy a shipping label, record its tracking number, and recover from a crash without buying it twice.</span>
+            <span>Reuse the email skill to buy one label, save its tracking number, and recover without buying it twice.</span>
           </div>
           <div className="def-item">
             <strong>Five-check rubrics</strong>
-            <span>Credits tested duplicates, ordering, tenant isolation, retries, and races. Email tested stale workers, two crash windows, clock skew, and the impossible guarantee.</span>
+            <span>Credits tested duplicates, ordering, isolation, retries, and races. Email tested stale workers, crash windows, clock skew, and the impossible guarantee.</span>
           </div>
         </div>
-        <Sub>We recorded receipt time, token-priced cost, and checks passed for six discovery runs and four replay attempts. We inspected the answers, but did not execute them.</Sub>
+        <Sub>Ten attempts measured time, token-priced cost, and checks passed. We inspected the answers, but did not execute them.</Sub>
       </div>
     )
   },
@@ -86,6 +86,12 @@ export const benchmarkSlides = [
           the fast route, while Sol and Grok were the frontier routes. Every
           answer passed five predefined checks by inspection. Grok&apos;s temporary
           launch discount is excluded from the list-price estimates.
+        </p>
+        <p>
+          Composer Fast passed both discovery tasks for less money than the
+          frontier routes. This pilot does not support using a frontier model
+          by default. It supports escalation when a cheaper answer fails the
+          checks or cannot explain the move.
         </p>
         <p>[Source] https://cursor.com/docs/models-and-pricing</p>
       </Notes>
@@ -153,7 +159,7 @@ export const benchmarkSlides = [
     content: (
       <div className="slide-frame compact">
         <Kicker>05 · Route · cost per successful task</Kicker>
-        <H1>The passing discovery runs cost about 10× more than the lowest skill-replay cost.</H1>
+        <H1>The cheapest replay cost about one-tenth of discovery in this small pilot.</H1>
         <div className="cost-contrast" aria-label="Average discovery cost compared with the lowest successful skill-replay cost">
           <div>
             <span>Discovery average</span>
@@ -167,7 +173,7 @@ export const benchmarkSlides = [
             <small>Luna route, including both attempts</small>
           </div>
         </div>
-        <Sub>The tasks differed, so treat this as a directional result and measure your own workload.</Sub>
+        <Sub>The tasks differed. The larger value is avoiding another search, review cycle, or production mistake.</Sub>
       </div>
     )
   },
@@ -188,13 +194,29 @@ export const benchmarkSlides = [
           Cost, time, and intelligence point to different winners, so the route
           depends on which constraint matters now.
         </p>
+        <p>
+          The transferred skill said to reject stale database writes with a
+          monotonic fence and reuse one stable provider operation ID across
+          retries. The new task was to buy one shipping label, store its
+          tracking number, and recover from a crash without buying it twice.
+        </p>
         <p>[Source] https://cursor.com/docs/models-and-pricing</p>
       </Notes>
     ),
     content: (
-      <div className="slide-frame compact">
+      <div className="slide-frame compact skill-replay-slide">
         <Kicker>05 · Route · skill replay</Kicker>
-        <H1>Two cheap routes both rounded to 1.6¢, but they got there differently.</H1>
+        <H1>We asked cheaper models to transfer the email move to shipping labels.</H1>
+        <div className="skill-transfer" aria-label="The transferred skill and the new shipping-label task">
+          <div>
+            <strong>The skill</strong>
+            <span>Reject stale writes with a monotonic fence, and reuse one provider operation ID across retries.</span>
+          </div>
+          <div>
+            <strong>The new task</strong>
+            <span>Buy one shipping label, store its tracking number, and recover from a crash without buying it twice.</span>
+          </div>
+        </div>
         <div className="def-list price-list">
           <div className="def-item accent">
             <strong>GPT-5.6 Luna Medium · cheap</strong>
@@ -209,7 +231,7 @@ export const benchmarkSlides = [
             <span>It passed on attempt 1 after 18.0 seconds and 11.4¢.</span>
           </div>
         </div>
-        <Sub>Cost per successful task includes every revised answer and retry.</Sub>
+        <Sub>These are directional receipts, not a model ranking. Cost includes every revised answer and retry.</Sub>
       </div>
     )
   }

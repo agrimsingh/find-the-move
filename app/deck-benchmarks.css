@@ -9,6 +9,58 @@
   font-size: 20px;
 }
 
+:is(.audience-page, .slide-preview-body) .skill-transfer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin-top: 24px;
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+:is(.audience-page, .slide-preview-body) .skill-transfer > div {
+  padding: 16px 0;
+}
+
+:is(.audience-page, .slide-preview-body) .skill-transfer > div:first-child {
+  padding-right: 24px;
+  border-right: 1px solid var(--border);
+}
+
+:is(.audience-page, .slide-preview-body) .skill-transfer strong,
+:is(.audience-page, .slide-preview-body) .skill-transfer span {
+  display: block;
+}
+
+:is(.audience-page, .slide-preview-body) .skill-transfer strong {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+:is(.audience-page, .slide-preview-body) .skill-transfer span {
+  margin-top: 8px;
+  color: var(--foreground);
+  font-size: 19px;
+  line-height: 1.35;
+}
+
+:is(.audience-page, .slide-preview-body) .skill-replay-slide > .price-list {
+  margin-top: 12px;
+}
+
+:is(.audience-page, .slide-preview-body) .skill-replay-slide .price-list .def-item {
+  padding: 13px 0;
+}
+
+:is(.audience-page, .slide-preview-body) .skill-replay-slide .price-list .def-item span {
+  font-size: 18px;
+}
+
 :is(.audience-page, .slide-preview-body) .benchmark-list .def-item strong {
   font-size: 16px;
 }
@@ -141,7 +193,8 @@
 
 @media (max-width: 900px) {
   :is(.audience-page, .slide-preview-body) .task-comparison,
-  :is(.audience-page, .slide-preview-body) .cost-contrast {
+  :is(.audience-page, .slide-preview-body) .cost-contrast,
+  :is(.audience-page, .slide-preview-body) .skill-transfer {
     grid-template-columns: 1fr;
   }
 
@@ -152,5 +205,10 @@
   :is(.audience-page, .slide-preview-body) .cost-arrow {
     justify-self: start;
     transform: rotate(90deg);
+  }
+
+  :is(.audience-page, .slide-preview-body) .skill-transfer > div:first-child {
+    padding-right: 0;
+    border-right: 0;
   }
 }

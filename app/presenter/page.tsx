@@ -13,18 +13,18 @@ const slideTitles: Record<string, string> = {
   "last-seat": "Two people bought the last seat.",
   "one-move": "The fix was one move.",
   "paid-again": "Then I paid to find it again.",
-  "finished-run": "A frontier run should leave behind a capability you can reuse.",
+  "finished-run": "Tokenmaxxing buys exploration. The value is a verified move you can reuse.",
   "skill-filter": "When a hard task ends, ask whether it earned a skill.",
   ritual: "Take five minutes before you close the run.",
   find: "Before you close the chat, ask what changed.",
   distill: "Write a skill the next agent can use.",
   lock: "Run one check for the result and one for the method.",
   replay: "Give a fresh chat only what it should need.",
-  "pilot-method": "We ran two discovery tasks, then replayed one skill on a third task.",
+  "pilot-method": "Two tasks tested discovery, and a third tested whether the skill transferred.",
   "hard-task-results": "Composer Fast produced the cheapest passing answer on both hard tasks.",
-  "cost-contrast": "The passing discovery runs cost about 10× more than the lowest skill-replay cost.",
-  "skill-replay-results": "Two cheap routes both rounded to 1.6¢, but they got there differently.",
-  "frontier-rule": "Use a frontier model when you still need to discover the move.",
+  "cost-contrast": "The cheapest replay cost about one-tenth of discovery in this small pilot.",
+  "skill-replay-results": "We asked cheaper models to transfer the email move to shipping labels.",
+  "frontier-rule": "Start cheap, then escalate when the move is unknown or a protected check fails.",
   "next-hard-fix": "Before you close the next hard fix:"
 };
 
