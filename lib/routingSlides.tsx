@@ -12,84 +12,91 @@ export const routingSlides = [
     note: (
       <Notes>
         <p>
-          I ran this exact replay in four clean Cursor chats. GPT-5.6 Sol took
-          one second, Composer 2.5 Fast took two, Kimi K3 Max took thirteen,
-          and Cursor Grok 4.6 High Fast took forty-nine.
+          The one-line SQL task was too small, so I ran two harder protected-
+          check prompts in clean Cursor chats. The credit-ledger task included
+          concurrent duplicates, refund-before-success, tenant isolation, crash
+          recovery, and an atomic balance path. Composer took twenty seconds,
+          Sol twenty-three, and Grok eighty; all three passed by inspection.
         </p>
         <p>
-          All four returned the same atomic conditional update on their first
-          attempt. I inspected each answer against the two checks; I did not run
-          a database benchmark. Kimi wrote much more than the task needed. Grok
-          searched unrelated local context before answering.
+          The leased-email task required a fencing token, database time, stable
+          provider idempotency, and an honest impossibility boundary. Sol took
+          nine seconds, Composer fourteen, and Grok twenty-nine; all passed.
+          Composer then reused the distilled move on a shipping-label variant
+          in fourteen seconds. This is still a pilot: one clean run per cell,
+          inspected against the checks rather than executed in a harness.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame compact">
-        <Kicker>05 · Route</Kicker>
-        <H1>Four models found the same move. They took 1 to 49 seconds.</H1>
-        <div className="def-list">
+        <Kicker>05 · Route · harder pilot</Kicker>
+        <H1>On harder tasks, the fastest model changed with the task.</H1>
+        <div className="def-list benchmark-list">
           <div className="def-item accent">
-            <strong>GPT-5.6 Sol Medium</strong>
-            <span>1 second. Correct, concise, and no tool work.</span>
+            <strong>Credit ledger</strong>
+            <span>Composer 20s · Sol 23s · Grok 80s. All passed five checks.</span>
           </div>
           <div className="def-item">
-            <strong>Composer 2.5 Fast</strong>
-            <span>2 seconds. Correct, concise, and no tool work.</span>
+            <strong>Leased email</strong>
+            <span>Sol 9s · Composer 14s · Grok 29s. All found the hard boundary.</span>
           </div>
           <div className="def-item">
-            <strong>Kimi K3 Max</strong>
-            <span>13 seconds. Correct, but longer than the task needed.</span>
+            <strong>Skill replay</strong>
+            <span>Composer 14s. The same move transferred to shipping labels.</span>
           </div>
           <div className="def-item">
-            <strong>Cursor Grok 4.6 High Fast</strong>
-            <span>49 seconds. Correct, after searching unrelated context.</span>
+            <strong>What this supports</strong>
+            <span>Route by protected checks and task shape, not one stopwatch result.</span>
           </div>
         </div>
-        <Sub>Same prompt. Clean chats. One answer each. Inspected, not benchmarked.</Sub>
+        <Sub>Pilot benchmark: one clean run per cell; answers inspected, not executed.</Sub>
       </div>
     )
   },
   {
-    id: "cost-receipt",
+    id: "price-parity",
     note: (
       <Notes>
         <p>
-          A low token price does not rescue a wrong answer or three failed
-          attempts. First make every model pass the same held-out tests. Then
-          compare how long the run took, how much extra work it did, and what
-          Cursor charged for the usage.
+          Here is price parity using the variants from the pilot. Hold the token
+          footprint constant at one hundred thousand input tokens and ten
+          thousand output tokens, then apply Cursor's published list rates.
+          Composer Fast costs forty-five cents, Grok Fast fifty-two, and Sol
+          eighty. Composer standard would cost 7.5 cents at the same footprint,
+          but that slower variant was not part of the pilot.
         </p>
         <p>
-          Cursor charges agent usage at each model's API rate. The dashboard is
-          the source of truth for the exact dollar amount, so copy that number
-          into the receipt instead of estimating it from the answer.
+          Those numbers are not a quality ranking. Price parity means the
+          cheaper route reaches the same protected checks. Count every failed
+          attempt because retries multiply both the token bill and the time.
         </p>
-        <p>[Source] https://docs.cursor.com/account/pricing</p>
+        <p>[Source] https://cursor.com/docs/models-and-pricing</p>
       </Notes>
     ),
     content: (
       <div className="slide-frame compact">
-        <Kicker>Compare the run</Kicker>
-        <H1>A cheap answer is only cheap after it passes.</H1>
-        <div className="def-list">
+        <Kicker>Price parity · pilot variants</Kicker>
+        <H1>Normalize the token footprint before you compare price.</H1>
+        <div className="def-list price-list">
           <div className="def-item accent">
-            <strong>01</strong>
-            <span>Run the same held-out tests against every answer.</span>
+            <strong>Composer Fast · 45¢</strong>
+            <span>100k × $3.00/M in + 10k × $15.00/M out</span>
           </div>
           <div className="def-item">
-            <strong>02</strong>
-            <span>Count every attempt, including the ones that failed.</span>
+            <strong>Grok 4.6 Fast · 52¢</strong>
+            <span>100k × $4.00/M in + 10k × $12.00/M out</span>
           </div>
           <div className="def-item">
-            <strong>03</strong>
-            <span>Record the elapsed time and any unnecessary tool work.</span>
+            <strong>GPT-5.6 Sol · 80¢</strong>
+            <span>100k × $5.00/M in + 10k × $30.00/M out</span>
           </div>
           <div className="def-item">
-            <strong>04</strong>
-            <span>Copy the exact usage charge from Cursor's dashboard.</span>
+            <strong>Composer standard · 7.5¢</strong>
+            <span>Cheaper replay option; this variant was not in the pilot.</span>
           </div>
         </div>
+        <Sub>List rates before temporary discounts. Parity requires the same checks to pass; count every retry.</Sub>
       </div>
     )
   },
@@ -98,10 +105,9 @@ export const routingSlides = [
     note: (
       <Notes>
         <p>
-          Model choice follows the work left to do. If the move is known and
-          the tests are clear, start with the fastest model that already passed.
-          If you are still trying to understand the failure, pay for more
-          reasoning.
+          This is Swyx's agent-lab idea made local: you are the routing and
+          evaluation layer. Use frontier reasoning to discover an unknown move,
+          then let the skill and held-out checks earn a cheaper model the repeat.
         </p>
         <p>
           Repeated, well-understood work may not need a general model at all.
@@ -112,6 +118,7 @@ export const routingSlides = [
         <ul>
           <li>https://docs.cursor.com/account/pricing</li>
           <li>https://cursor.com/changelog/composer-2-5</li>
+          <li>https://www.latent.space/p/dreamer</li>
         </ul>
       </Notes>
     ),
@@ -121,20 +128,20 @@ export const routingSlides = [
         <H1>Use a frontier model when you still need to discover the move.</H1>
         <div className="def-list">
           <div className="def-item accent">
-            <strong>You know the move</strong>
-            <span>Start with the fastest model that has passed your tests.</span>
+            <strong>The move is unknown</strong>
+            <span>Use a frontier model to discover it and explain why it works.</span>
           </div>
           <div className="def-item">
-            <strong>You repeat the task</strong>
-            <span>Try a specialist model or automate the job.</span>
+            <strong>The skill and checks are ready</strong>
+            <span>Start with the cheapest model that has passed the same bar.</span>
           </div>
           <div className="def-item">
-            <strong>You do not understand the failure</strong>
-            <span>Use a frontier reasoning model to find the move.</span>
+            <strong>The task is narrow and repeated</strong>
+            <span>Try a specialist model or remove the model from the path.</span>
           </div>
           <div className="def-item">
-            <strong>A mistake would hurt</strong>
-            <span>Use the stronger model and keep a human in the review.</span>
+            <strong>The cheaper route fails</strong>
+            <span>Escalate with the failed check as evidence, then improve the skill.</span>
           </div>
         </div>
       </div>
@@ -164,19 +171,19 @@ export const routingSlides = [
           </div>
           <div className="def-item">
             <strong>02</strong>
-            <span>Can the next chat use the move without this transcript?</span>
+            <span>Does this recur often enough to earn a skill?</span>
           </div>
           <div className="def-item">
             <strong>03</strong>
-            <span>What test proves the result?</span>
+            <span>What trigger, move, and stop condition belong in the skill?</span>
           </div>
           <div className="def-item">
             <strong>04</strong>
-            <span>What test protects how the fix works?</span>
+            <span>What protected checks prove the result and the method?</span>
           </div>
           <div className="def-item accent">
             <strong>05</strong>
-            <span>Which model earned the next try?</span>
+            <span>Which cheaper model reaches the same bar, after how many attempts?</span>
           </div>
         </div>
       </div>

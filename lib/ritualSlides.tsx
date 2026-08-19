@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { H1, Kicker, type SlideDef } from "../components/Slide";
+import { H1, Kicker, Sub, type SlideDef } from "../components/Slide";
 
 function Notes({ children }: { children: ReactNode }) {
   return <div>{children}</div>;
@@ -8,13 +8,58 @@ function Notes({ children }: { children: ReactNode }) {
 
 export const ritualSlides = [
   {
+    id: "skill-filter",
+    note: (
+      <Notes>
+        <p>
+          Not every answer deserves a skill. Make one when the task was hard,
+          the useful decision was not obvious, the situation will recur, and
+          you can test the result without asking the model whether it is right.
+        </p>
+        <p>
+          This is how hard work compounds: the frontier model discovers the
+          move once, then the skill carries that judgment into cheaper runs.
+        </p>
+        <p>[Sources]</p>
+        <ul>
+          <li>https://www.latent.space/p/modal2026</li>
+          <li>https://www.latent.space/p/dreamer</li>
+        </ul>
+      </Notes>
+    ),
+    content: (
+      <div className="slide-frame compact">
+        <H1>When a hard task ends, ask whether it earned a skill.</H1>
+        <div className="def-list">
+          <div className="def-item accent">
+            <strong>It was hard</strong>
+            <span>The answer took several attempts or genuinely stronger reasoning.</span>
+          </div>
+          <div className="def-item">
+            <strong>The move was not obvious</strong>
+            <span>You learned something that the next agent would otherwise rediscover.</span>
+          </div>
+          <div className="def-item">
+            <strong>It will recur</strong>
+            <span>The same failure shape can appear in another feature or repository.</span>
+          </div>
+          <div className="def-item">
+            <strong>You can test it</strong>
+            <span>A check outside the chat can tell you whether the skill worked.</span>
+          </div>
+        </div>
+        <Sub>If one of these is missing, keep a note. If all four hold, make the skill.</Sub>
+      </div>
+    )
+  },
+  {
     id: "ritual",
     note: (
       <Notes>
         <p>
-          This takes five minutes after a hard run: find the decision, distill
-          it into a move card, lock the proof, replay it cold, then route the
-          next attempt with evidence.
+          This takes five minutes after a hard run: find the decision, put it
+          in a small skill, lock the proof, replay it cold, then route the next
+          attempt with evidence.
         </p>
         <p>
           Each step leaves something concrete behind. The audience can use the
@@ -32,7 +77,7 @@ export const ritualSlides = [
           </div>
           <div className="role">
             <strong>02 · Distill</strong>
-            <span>Save the decision.</span>
+            <span>Write the skill.</span>
           </div>
           <div className="role">
             <strong>03 · Lock</strong>
@@ -86,31 +131,34 @@ export const ritualSlides = [
     note: (
       <Notes>
         <p>
-          Copy this template. The trigger keeps the move from becoming vague
-          advice. The mechanism lets the next agent adapt it. The stop
-          condition prevents confident reuse when the situation has changed.
+          This is a real skill, not a transcript summary. Its description tells
+          the agent when to load it. The body names the move, points to the
+          deterministic check, and says when to stop and escalate.
         </p>
         <p>
-          Do not save the transcript. If the move card cannot stand on its own
-          in a fresh chat, it is not distilled yet.
+          References can hold the longer explanation and scripts can make the
+          safe path repeatable. If the skill cannot stand on its own in a fresh
+          chat, it is not ready.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame compact code-slide">
         <Kicker>02 · Distill</Kicker>
-        <H1>Save the decision, not the transcript.</H1>
+        <H1>Write a skill the next agent can use.</H1>
         <pre className="code-fill">
           {[
-            "WHEN   two requests can claim the last item",
+            "name: claim-one-seat",
+            "use when: competing requests can claim one item",
             "",
-            "MOVE   claim it and check the result in one step",
+            "move: claim the item and check the result atomically",
             "",
-            "WHY    only one request can change the row",
+            "verify: run scripts/check-last-seat.sh",
             "",
-            "STOP   if the database cannot do both atomically"
+            "escalate when: storage cannot make both actions atomic"
           ].join("\n")}
         </pre>
+        <Sub>Keep the explanation in references and the deterministic work in scripts.</Sub>
       </div>
     )
   }

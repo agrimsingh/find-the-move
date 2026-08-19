@@ -727,6 +727,37 @@ a {
   letter-spacing: -0.02em;
 }
 
+.price-list .def-item {
+  grid-template-columns: 300px minmax(0, 1fr);
+}
+
+.price-list .def-item strong {
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+.price-list .def-item.accent strong {
+  color: var(--signal);
+}
+
+.price-list .def-item span {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: -0.015em;
+}
+
+.benchmark-list .def-item {
+  grid-template-columns: 200px minmax(0, 1fr);
+}
+
+.benchmark-list .def-item strong {
+  font-size: 13px;
+}
+
 /* Peer roles with short copy: horizontal strip, natural height */
 .role-strip {
   margin-top: 32px;

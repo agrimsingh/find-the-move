@@ -111,18 +111,19 @@ export const storySlides = [
     note: (
       <Notes>
         <p>
-          A fixed bug is one successful run. A kept move changes the cost and
-          reliability of every run after it.
+          A fixed bug is one successful run. The expensive model should leave
+          behind a capability that makes every similar run cheaper and more
+          reliable.
         </p>
         <p>
-          So I changed my definition of done: the move has to survive the
-          chat, and I need proof that it still works.
+          So I changed my definition of done: the move has to survive the chat
+          as a skill, and the skill needs proof that it still works.
         </p>
       </Notes>
     ),
     content: (
       <div className="slide-frame">
-        <H1>A hard run is not finished until the move survives the chat.</H1>
+        <H1>A frontier run should leave behind a capability you can reuse.</H1>
       </div>
     )
   }

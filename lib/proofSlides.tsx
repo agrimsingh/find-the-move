@@ -50,7 +50,7 @@ export const proofSlides = [
                 "claim + check happen",
                 "in one database step",
                 "",
-                "reject read → decide → write"
+                "no separate read → decide → write"
               ].join("\n")}
             </pre>
           </div>
