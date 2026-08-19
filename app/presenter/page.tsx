@@ -10,14 +10,19 @@ import { slides } from "../../lib/slides";
 
 const slideTitles: Record<string, string> = {
   title: "Find the move.",
-  "let-it-wander": "I let it wander",
-  "opened-a-new-chat": "I opened a new chat",
-  thesis: "The failure is paying to find the same move again.",
-  "skill-stops-paying": "The skill is how I stop paying",
-  "copied-the-run": "I copied the expensive run into that file",
-  "locked-the-test": "I locked the test so green means the path held",
-  "deleted-the-skill": "I deleted the skill that made me pay twice",
-  "dont-merge": "I don't merge it"
+  "last-seat": "Two people bought the last seat.",
+  "one-move": "The fix was one move.",
+  "paid-again": "Then I paid to find it again.",
+  "finished-run": "The move must survive the chat.",
+  ritual: "Take five minutes before you close the run.",
+  find: "Before you close the chat, ask what changed.",
+  distill: "Save the decision, not the transcript.",
+  lock: "Run one check for the result and one for the method.",
+  replay: "Give a fresh chat only what it should need.",
+  route: "Four models found the same move. They took 1 to 49 seconds.",
+  "cost-receipt": "A cheap answer is only cheap after it passes.",
+  "frontier-rule": "Use a frontier model when you still need to discover the move.",
+  "next-hard-fix": "Before you close the next hard fix."
 };
 
 function presenterTitle(slide: SlideDef) {

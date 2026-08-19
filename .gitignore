@@ -8,6 +8,9 @@ out/
 # local / tooling
 .DS_Store
 .cursor/
+.omo/
+output/imagegen/
+tmp/
 test-results/
 playwright-report/
 .vercel

@@ -12,7 +12,7 @@
 
 - This workspace is a Next.js slide deck + presenter view (`find-the-move`) for Agrim Singh's 15-minute talk.
 - The example is the last-seat race: two people bought the last seat; both requests saw one left; both wrote. The path is taking the seat and checking the seat in the same step. The second buyer gets nothing.
-- Thesis card H1 is “The failure is paying to find the same move again.” The title slide is only “Find the move.” plus byline.
-- Spoken arc is exactly 9 slides: `title`, `wander`, `new-chat`, `thesis`, `skill-stops-paying`, `copied-the-run`, `locked-the-test`, `deleted-the-skill`, `dont-merge`. `slides.length === 9`.
-- Card titles and bodies in `lib/slides.tsx` are locked copy. `skill-stops-paying` and `locked-the-test` are compact code-slides with structured English, not source files. `copied-the-run` is a short log-versus-skill split. The skill is how I stop paying: frontier found the path once; I do not pay to find it again.
+- Thesis card H1 is “A hard run is not finished until the move survives the chat.” The title slide is only “Find the move.” plus byline.
+- Spoken arc is 14 slides: a three-slide last-seat hook, the “survives the chat” thesis, then a five-minute `find -> distill -> lock -> replay -> route` ritual, a four-model receipt, a whole-run cost check, an uncertainty-based routing rule, and a five-question close.
+- The talk stays distinct from adjacent talks about AI value economics, personal context, memory, or planning. Its territory is a procedure the audience can use today: extract the non-obvious decision, write a move card, protect behavioral and structural proof, replay it in a clean chat, and route the next attempt with a receipt.
 - PartyKit / multiplayer stays inert. `localStorage` slide index is enough. `npm run dev` / `start` are pinned to hostname `127.0.0.1`.
