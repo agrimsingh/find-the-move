@@ -132,7 +132,7 @@ export const benchmarkSlides = [
           Across the six passing hard-task answers, the average list-price
           estimate was 16.0 cents. The cheapest successful skill replay cost
           1.55 cents after two Luna attempts, displayed as 1.6 cents. Composer
-          2.5 cost 1.64 cents in one CLI run, which also rounds to 1.6 cents.
+          2.5 cost 1.63 cents in one clean CLI run, which also rounds to 1.6 cents.
           The lowest route is almost exactly ten times cheaper than discovery
           in this small pilot.
         </p>
@@ -177,10 +177,10 @@ export const benchmarkSlides = [
           both attempts, Luna took 39.3 seconds and cost 1.6 cents.
         </p>
         <p>
-          Composer 2.5 passed in one CLI run for 1.6 cents, but a reconnect made
-          the wall time 147.4 seconds. Composer 2.5 Fast passed in 18 seconds
-          for 11.4 cents. Cost, time, and intelligence point to different
-          winners, so the route depends on which constraint matters now.
+          Composer 2.5 passed in one clean CLI run for 1.63 cents and took
+          131.5 seconds. Composer 2.5 Fast passed in 18 seconds for 11.4 cents.
+          Cost, time, and intelligence point to different winners, so the route
+          depends on which constraint matters now.
         </p>
         <p>[Source] https://cursor.com/docs/models-and-pricing</p>
       </Notes>
@@ -196,14 +196,14 @@ export const benchmarkSlides = [
           </div>
           <div className="def-item accent">
             <strong>Composer 2.5 · cheap</strong>
-            <span>It passed after a reconnect, taking 147.4 seconds and 1.64¢.</span>
+            <span>It passed in one clean run after 131.5 seconds and 1.63¢.</span>
           </div>
           <div className="def-item">
             <strong>Composer 2.5 Fast · fast</strong>
             <span>It passed on attempt 1 after 18.0 seconds and 11.4¢.</span>
           </div>
         </div>
-        <Sub>Cost per successful task includes every revised answer, retry, and reconnect.</Sub>
+        <Sub>Cost per successful task includes every revised answer and retry.</Sub>
       </div>
     )
   }
